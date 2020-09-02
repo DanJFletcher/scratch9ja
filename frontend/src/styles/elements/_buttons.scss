@@ -1,0 +1,14 @@
+.custom-btn{
+    padding: 18px 32px;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    background: #ffdf00;
+    color: #202323;
+    font-family: var(--body-text-font);
+    font-weight: 700;
+
+    &.header-btn{
+        padding: 10px 20px;
+    }
+}

@@ -1,0 +1,9 @@
+
+body{
+    font-family: var(--body-text-font);
+    background: var(--theme-bg-color);
+}
+
+.flex > *{
+    align-self: center;
+}
