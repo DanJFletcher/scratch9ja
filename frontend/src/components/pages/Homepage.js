@@ -1,5 +1,5 @@
 import React from 'react'
-import banner from '../../imgs/banner.jpg'
+import banner from '../../imgs/banner.png'
 import Header from '../layouts/Header'
 import GamesByCategories from '../layouts/GamesByCategories'
 
