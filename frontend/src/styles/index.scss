@@ -5,38 +5,50 @@
 
 // Header Styles
 
+@mixin headerIconStyle($color) {
+    height: 30px;
+    width: 30px;
+    stroke: $color;
+}
+
 .page-header{
     position: absolute;
     top: 0;
+    padding: 15px 30px;
     background: transparent;
     z-index: 1;
 
-    .preferred-items input{
-        padding: 20px 30px;
-        width: 500px;
-        background: var(--theme-bg-color);
-        border-radius: 7px;
-        color: #fff;
+    .preferred-items{ 
+        position: relative;
 
-        &::-moz-placeholder{
+        input{
+            padding: 20px 30px;
+            width: 70vh;
+            background: var(--theme-bg-color);
+            border-radius: 10px;
             color: #fff;
+            box-shadow: 0 0 10px 2px var(--theme-shadow-color);
         }
+
+        svg{
+            @include headerIconStyle(var(--theme-grey));
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
     }
 
-
-
     .logo{
-        width: 50px;
+        width: 45px;
     }
 
     .ctas{
-        width: 200px;
+        width: 140px;
     }
 
     .ctas svg{
-        stroke: var(--theme-text-color);
-        height: 30px;
-        width: 30px;
+        @include headerIconStyle(var(--theme-text-color));
         cursor: pointer;
     }
 }
@@ -55,19 +67,95 @@
         text-align: center;
 
         h1{
-            font-size: 65px;
-            font-weight: 900;
+            font-size: 60px;
+            font-family: var(--heading-text-font);
         }
 
         p{
             text-align: center;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 20px;
             margin-bottom: 50px;
         }
+    
+    }
+}
 
-        
+.tab-container .flex{
+    grid-gap: 40px;
+}
+
+.tab-element{
+    position: relative;
+    cursor: pointer;
+
+    span{
+        font-size: 30px;
+        color: var(--theme-text-color);
+        font-family: var(--heading-text-font);
+        transition: all ease .2s;
+    }
+
+    &.active::after{
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: var(--theme-color1);
+        border-radius: 100%;
+    }
+
+    &:hover span{
+        color: var(--theme-color1);
+    }
+}
+
+.categories-games{
+    padding: 15px 30px;
+}
+
+.game-box{
+    display: block;
+    width: 250px;
+    padding: 15px;
+    background: var(--theme-bg-variant);
+    border-radius: 15px;
+    cursor: pointer;
+
+    .image{
+        height: 200px;
+
+        img{
+            width: 170px;
+            height: 170px;
+            border-radius: 10px;
+        }
+    }
+
+    .content{
+        color: var(--theme-text-color);
+
+        .text h1{
+            font-size: 20px;
+            font-family: var(--heading-text-font);
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .text span{
+            color: var(--theme-grey);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .cta svg{
+            stroke: var(--theme-color1);
+            height: 30px;
+            width: 30px;
+        }
     }
 }
 
