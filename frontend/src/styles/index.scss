@@ -26,8 +26,9 @@
             width: 70vh;
             background: var(--theme-bg-color);
             border-radius: 10px;
-            color: #fff;
-            box-shadow: 0 0 10px 2px var(--theme-shadow-color);
+            color: var(--theme-text-color);
+            font-weight: 900;
+            box-shadow: 0 0 5px 1px var(--theme-shadow-color);
         }
 
         svg{
@@ -69,14 +70,19 @@
         h1{
             font-size: 60px;
             font-family: var(--heading-text-font);
+            line-height: 1.1em;
         }
 
         p{
             text-align: center;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 19px;
+            //font-weight: 600;
             margin-top: 20px;
             margin-bottom: 50px;
+
+            b{
+                color: var(--theme-color1)
+            }
         }
     
     }

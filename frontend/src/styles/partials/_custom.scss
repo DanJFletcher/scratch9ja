@@ -1,4 +1,30 @@
 
+@font-face {
+    font-family: 'TT Norms Pro';
+    src: url('../../fonts/TTNormsPro-Bold.eot');
+    src: local('TT Norms Pro Bold'), local('TTNormsPro-Bold'),
+        url('../../fonts/TTNormsPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/TTNormsPro-Bold.woff2') format('woff2'),
+        url('../../fonts/TTNormsPro-Bold.woff') format('woff'),
+        url('../../fonts/TTNormsPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Norms Pro';
+    src: url('../../fonts/TTNormsPro-Regular.eot');
+    src: local('TT Norms Pro Regular'), local('TTNormsPro-Regular'),
+        url('../../fonts/TTNormsPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/TTNormsPro-Regular.woff2') format('woff2'),
+        url('../../fonts/TTNormsPro-Regular.woff') format('woff'),
+        url('../../fonts/TTNormsPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body{
     font-family: var(--body-text-font);
     background: var(--theme-bg-color);

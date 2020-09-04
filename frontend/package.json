@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@trendmicro/react-tooltip": "^0.6.0",
     "autoprefixer": "^9.8.6",
     "node-sass": "^4.14.1",
     "postcss-cli": "^7.1.2",
@@ -13,7 +14,8 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-scripts": "3.4.3",
-    "tailwindcss": "^1.7.6"
+    "tailwindcss": "^1.7.6",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "npm run build:css && react-scripts start",

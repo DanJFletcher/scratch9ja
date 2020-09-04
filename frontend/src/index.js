@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import WebFont from 'webfontloader';
 import './styles/tailwind/index.scss';
 import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+WebFont.load({
+  google: {
+    families: ['DM Serif Display', 'sans-serif']
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
