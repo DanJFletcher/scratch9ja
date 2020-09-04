@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRoutes, A} from 'hookrouter'
+import {useRoutes} from 'hookrouter'
 import Homepage from './components/pages/Homepage';
 import routes from './components/routes/RouteList'
 
@@ -10,8 +10,6 @@ function App() {
   return (
     <div className="App">
       
-      <Homepage />
-
       {routeResult}
     </div>
   );

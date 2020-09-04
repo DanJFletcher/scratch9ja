@@ -13,7 +13,7 @@ const GamesByCategories = () => {
     
     
    
-    const Tabs = [
+    const Tabs =[
        'Gadgets', 'Sports', 'Family'
     ]
 
