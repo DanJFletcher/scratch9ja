@@ -1,4 +1,5 @@
 import React from 'react'
+import A from 'hookrouter'
 import logo from '../../imgs/logo.png'
 import * as Icon from 'react-feather';
 
@@ -16,9 +17,9 @@ const Header = () => {
 
             <div className="flex justify-between ctas">
                 <span> <Icon.ShoppingCart /> </span>
-                <a href="#" className="custom-btn header-btn">
+                <A href="/login" className="custom-btn header-btn">
                     <span>login</span>
-                </a>
+                </A>
             </div>
         </div>
     );
