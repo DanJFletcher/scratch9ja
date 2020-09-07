@@ -5,9 +5,11 @@ import * as Icon from 'react-feather';
 import { Tooltip} from '@trendmicro/react-tooltip';
 
 const Header = () => {
+
+
     return (
         <div class="flex justify-between w-full page-header">
-            <div className="logo">
+            <div className=" logo justify-between ">
                 <img src={logo} alt="logo"/>
             </div>
 
@@ -22,11 +24,12 @@ const Header = () => {
                 </Tooltip>
 
                 <A href="/login" className="custom-btn header-btn">
-                    <span>login</span>
+                    <span> login </span>
                 </A>
             </div>
         </div>
     );
+
 }
 
 export default Header;

@@ -66,6 +66,8 @@
         color: #fff;
         width: 700px;
         text-align: center;
+        align-self: auto;
+        margin-top: 14%;
 
         h1{
             font-size: 60px;
@@ -76,7 +78,6 @@
         p{
             text-align: center;
             font-size: 19px;
-            //font-weight: 600;
             margin-top: 20px;
             margin-bottom: 50px;
 
@@ -98,6 +99,7 @@
 
     span{
         font-size: 30px;
+        text-transform: capitalize;
         color: var(--theme-text-color);
         font-family: var(--heading-text-font);
         transition: all ease .2s;
@@ -120,12 +122,24 @@
 }
 
 .categories-games{
-    padding: 15px 30px;
+    padding: 15px 30px;  
 }
 
 .categories-games-container{
     width: 900px;
-    column-gap: 50px;
+    column-gap: 70px;
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        height: 50px;
+        width: 100%;
+        background: linear-gradient(to bottom, transparent var(--theme-grey)) 70%;
+    } 
 }
 
 .game-box{
@@ -169,6 +183,58 @@
             width: 30px;
         }
     }
+}
+
+.game-highlight{
+    margin: 100px 0 50px 0;
+
+    .text-content{
+        width: 500px;
+        color: var(--theme-text-color);
+        
+        h1{
+            font-size: 45px;
+            font-family: var(--heading-text-font);
+            margin-bottom: 10px;
+        }
+
+        p{
+            font-size: 20px;
+            margin-bottom: 20px;
+
+            b{
+                color: var(--theme-color1)
+            }
+        }
+    }
+
+    .img-content{
+        height: 350px;
+        width: 600px;
+        outline: 3px dashed var(--theme-color1);
+        box-shadow: 0 0 0 3px var(--theme-bg-color);
+        animation: .2s animateBorder ease infinite;
+
+        @keyframes animateBorder {
+            to {
+              outline-color: var(--theme-bg-color);
+              box-shadow: 0 0 0 3px var(--theme-color1);
+            }
+          }
+
+        img{
+            height: 300px;
+            width: 550px;
+            border-radius: 10px;
+            position: relative;
+        }
+    }
+}
+
+
+.custom-input{
+    background-color: rgba(255, 255, 255, .4);
+    border: 1px solid grey;
 }
 
 
