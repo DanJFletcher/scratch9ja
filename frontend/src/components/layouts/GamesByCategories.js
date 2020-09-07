@@ -26,7 +26,7 @@ const GamesByCategories = () => {
 
     
 
-    const gamesList = games.map(game =>{
+    const gamesList = games.map(game => {
         return (
             <GameBox id={game.id} image={game.image} title={game.title} price={game.price} /> 
         )
@@ -35,7 +35,8 @@ const GamesByCategories = () => {
 
 
 
-    return <div>
+    return (
+        <div>
             <div className="custom-tabs flex justify-center mt-8 mb-8">
                 <div className="tab-container pt-5 pb-5">
                     <div className="flex">
@@ -56,14 +57,16 @@ const GamesByCategories = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between categories-games">
-                { gamesList }
+            <div className="grid justify-center categories-games">
+                <div className="flex flex-wrap categories-games-container">
+                    { gamesList }
+                </div> 
             </div>
 
             
         </div>
- 
-    }
+    )
+}
 
 
 export default GamesByCategories;

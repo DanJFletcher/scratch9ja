@@ -123,6 +123,11 @@
     padding: 15px 30px;
 }
 
+.categories-games-container{
+    width: 900px;
+    column-gap: 50px;
+}
+
 .game-box{
     display: block;
     width: 250px;
@@ -130,6 +135,7 @@
     background: var(--theme-bg-variant);
     border-radius: 15px;
     cursor: pointer;
+    margin-bottom: 50px;
 
     .image{
         height: 200px;

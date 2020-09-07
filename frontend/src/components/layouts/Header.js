@@ -1,7 +1,8 @@
 import React from 'react'
-import A from 'hookrouter'
+import {A} from 'hookrouter'
 import logo from '../../imgs/logo.png'
 import * as Icon from 'react-feather';
+import { Tooltip} from '@trendmicro/react-tooltip';
 
 const Header = () => {
     return (
@@ -16,7 +17,10 @@ const Header = () => {
             </div>
 
             <div className="flex justify-between ctas">
-                <span> <Icon.ShoppingCart /> </span>
+                <Tooltip placement="top" content="View Cart">
+                    <Icon.ShoppingCart />
+                </Tooltip>
+
                 <A href="/login" className="custom-btn header-btn">
                     <span>login</span>
                 </A>

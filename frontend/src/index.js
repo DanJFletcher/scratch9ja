@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import WebFont from 'webfontloader';
 import './styles/tailwind/index.scss';
 import './styles/index.scss';
+import '@trendmicro/react-tooltip/dist/react-tooltip.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -13,9 +14,9 @@ WebFont.load({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+    <App />,
+  
   document.getElementById('root')
 );
 
