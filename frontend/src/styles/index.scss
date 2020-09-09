@@ -110,10 +110,11 @@
         position: absolute;
         bottom: -5px;
         display: block;
-        height: 2px;
+        //height: 2px;
         width: 100%;
-        background: var(--theme-color1);
-        border-radius: 100%;
+        //background: var(--theme-color1);
+        //border-radius: 100%;
+        outline: 2px dashed var(--theme-color1);
     }
 
     &:hover span{

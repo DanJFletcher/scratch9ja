@@ -27,7 +27,7 @@ const Homepage = () => {
 
             <div className="flex justify-around game-highlight">
                 <div className="text-content">
-                    <h1>Where do you think <br/> the ball is? Lets play!</h1>
+                    <h1>Where do you think <br/> the ball is... Lets play!</h1>
                     <p>Scratch the box where you think the ball should be, if you find the ball you win <b> &#8358; 50,000 </b>instantly</p>
                     <a href="#" className="custom-btn">
                         <span>Add To Cart</span>

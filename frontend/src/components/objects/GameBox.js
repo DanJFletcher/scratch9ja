@@ -5,6 +5,7 @@ import { Tooltip} from '@trendmicro/react-tooltip';
 const GameBox = (props) => {
     return (
         <div>
+
             <a href="#" key={props.id} className="game-box">
                 <div className="image flex justify-center">
                     <img src={props.image} alt="game"/>
@@ -22,6 +23,7 @@ const GameBox = (props) => {
                     </div>
                 </div>
             </a>
+            
         </div>
     );
 }

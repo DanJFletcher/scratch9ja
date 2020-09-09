@@ -9,51 +9,69 @@ import game6 from '../../imgs/jackpot.png'
 
 
 
-
-
 const GamesByCategories = () => {
+
+    const [currentCategory, setCurrentCategory] = useState(0)
     
-    const categories =[
-        {id: 1, name: 'gadgets'},
-        {id: 2, name: 'sports'},
-        {id: 3, name: 'family'},
-    ]
+    const [categories, setCategories] = useState([
+        {id: 0, name: 'all', isActive: true},
+        {id: 1, name: 'gadgets', isActive: false},
+        {id: 2, name: 'sports', isActive: false},
+        {id: 3, name: 'family', isActive: false},
+    ])
 
     const categoriesTab = categories.map(category => {
+        var active = category.isActive ? 'active' : ''
         return(
-            <div key={category.id} className="tab-element">
+            <div key={category.id} onClick={() => filterCategory(category.id)} className={"tab-element " + active } >
                 <span>{category.name}</span>
             </div>
         )
     })
 
-     const [games] = useState([
-        {id: 1, image: game1, title: 'fast cash', price: 500.00},
-        {id: 2, image: game2, title: 'sharp win', price: 200.00},
-        {id: 3, image: game3, title: 'beta plus', price: 500.00},
-        {id: 4, image: game4, title: 'yafun yafun', price: 100.00},
-        {id: 5, image: game5, title: 'scratch hammer', price: 1000.00},
-        {id: 6, image: game6, title: 'win direct', price: 1000.00},
-    ])
+     const games = [
+        {id: 1, image: game1, title: 'fast cash', price: 500.00, category: 1},
+        {id: 2, image: game2, title: 'sharp win', price: 200.00, category: 1},
+        {id: 3, image: game3, title: 'beta plus', price: 500.00, category: 2},
+        {id: 4, image: game4, title: 'yafun yafun', price: 100.00, category: 2},
+        {id: 5, image: game5, title: 'scratch hammer', price: 1000.00, category: 3},
+        {id: 6, image: game6, title: 'win direct', price: 1000.00, category: 3},
+    ]
 
-    const gamesList = games.map(game => {
+    const gamesList = games.filter(game => (game.category === (currentCategory) || currentCategory === 0))
+    .map(game => {
         return (
             <GameBox id={game.id} image={game.image} title={game.title} price={game.price} /> 
         )
         
-    })
+    }) 
 
+    const filterCategory = (categoryId) => {
+
+        var updatedCategories = categories.map(category => {
+            if(category.id === categoryId){
+                category.isActive = true
+                
+            }else{
+                category.isActive = false
+            }
+
+            return category
+        })
+
+        setCurrentCategory(categoryId)
+
+        setCategories(updatedCategories)
+        
+    }
 
 
     return (
         <div>
+
             <div className="custom-tabs flex justify-center mt-40 mb-8">
                 <div className="tab-container pt-5 pb-5">
                     <div className="flex">
-                        <div className="tab-element active">
-                                <span>All</span>
-                        </div>
-                        
                         {categoriesTab}
                     </div>
                 </div>

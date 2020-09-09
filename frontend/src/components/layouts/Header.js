@@ -8,24 +8,26 @@ const Header = () => {
 
 
     return (
-        <div class="flex justify-between w-full page-header">
-            <div className=" logo justify-between ">
-                <img src={logo} alt="logo"/>
-            </div>
+        <div>
+            <div className="flex justify-between w-full page-header">
+                <div className=" logo justify-between ">
+                    <img src={logo} alt="logo"/>
+                </div>
 
-            <div className="preferred-items">
-                <input type="text" placeholder="What will you love to win?"/>
-                <span> <Icon.Search /> </span>
-            </div>
+                <div className="preferred-items">
+                    <input type="text" placeholder="What will you love to win?"/>
+                    <span> <Icon.Search /> </span>
+                </div>
 
-            <div className="flex justify-between ctas">
-                <Tooltip placement="top" content="View Cart">
-                    <Icon.ShoppingCart />
-                </Tooltip>
+                <div className="flex justify-between ctas">
+                    <Tooltip placement="top" content="View Cart">
+                        <Icon.ShoppingCart />
+                    </Tooltip>
 
-                <A href="/login" className="custom-btn header-btn">
-                    <span> login </span>
-                </A>
+                    <A href="/login" className="custom-btn header-btn">
+                        <span> login </span>
+                    </A>
+                </div>
             </div>
         </div>
     );
