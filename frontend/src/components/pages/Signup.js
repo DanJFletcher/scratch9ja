@@ -2,23 +2,30 @@ import React  from 'react';
 import LoginBanner from '../../imgs/scratch9ja.png';
 import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
 
 const SignUp = () => {
-    const { register, handleSubmit} = useForm();
 
+// background image
     const loginBg = "url(" + LoginBanner + ") center/cover"
 
+// handle submit
+    const { register, handleSubmit} = useForm();
     const onSubmit = (values) => {
-        console.log(values);
+     console.log(values);
     };
+
+    
 
     return (
        
- <div className="page-banner flex justify-center page-header" style={{ background:  loginBg }} >
+ <div className="form-bg flex justify-center page-header" style={{ background:  loginBg }} >
         
     <div className="text-content container mx-auto p-2 ">
        
-        <div className="max-w-sm mx-auto my-24 px-5 py-10 rounded shadow-xl">
+        <div className="max-w-sm mx-auto justify-center px-5 py-10 rounded shadow-xl">
     
             <div className="flex mx-40 logo justify-between mb-8">
                 <img src={Logo} alt=""/>

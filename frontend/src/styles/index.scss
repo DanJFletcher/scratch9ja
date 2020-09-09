@@ -238,3 +238,23 @@
 }
 
 
+// Form background image styles
+
+.form-bg{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    color: var(--theme-text-color);
+
+}
+
+i {
+    position: absolute;
+    top: 52%;
+    right: 39%;
+   
+  }
+  i:hover {
+    cursor: pointer;
+     color: var(--theme-color1);
+  }
