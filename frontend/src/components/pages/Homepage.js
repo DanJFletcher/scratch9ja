@@ -7,7 +7,7 @@ import footballgame from '../../imgs/football.png'
 
 const Homepage = () => {
 
-    const bannerBg = " linear-gradient(rgba(0,0,0, .85), rgba(0,0,0, .85)), url(" + banner + ") center/cover"
+    const bannerBg = " linear-gradient(rgba(0,0,0, .75), rgba(0,0,0, .75)), url(" + banner + ") center/cover"
 
     return (
         <div>

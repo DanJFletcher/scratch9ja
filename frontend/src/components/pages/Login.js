@@ -12,10 +12,12 @@ const Login = () => {
 
  // handle submit
 
-           const { register, handleSubmit} = useForm({});
-            const onSubmit =  (data) => {
+           const { register, handleSubmit, errors} = useForm({});
+            const onSubmit =  (data, e) => {
                 console.log(data);
+                e.target.reset();
             };
+            const onError = (errors, e) => console.log(errors, e);
 
  // Password visibility toggle
 
@@ -39,24 +41,35 @@ const Login = () => {
                 <img src={Logo} alt=""/>
             </div>
     
-  <form onSubmit={handleSubmit(onSubmit)}>
+  <form onSubmit={handleSubmit(onSubmit, onError)}>
 
             <div className="mt-5 ">
                 <label htmlFor="username">Username</label>
-                <input type="text" id="username" className="block w-full custom-input p-2  rounded "
-                 ref={register({ required: "This is required." })} />
+                <input type="text" id="username" name="username" className="block w-full custom-input p-2  rounded "
+                 ref={register({ required: true })} />
+                 {errors.username && errors.username.type === "required" 
+                 &&  (<span className="error-message">Fill in your Username</span>) }
             </div>
     
             <div className="mt-5">
                 <label htmlFor="password">Password</label>
-                <input type={passwordShown ? "text" : "password"} id="password"
+                <input type={passwordShown ? "text" : "password"} id="password" name="password"
                  className="block w-full custom-input p-2  rounded "
-                 ref={register({ required: "This is required." })} />
+                 ref={register({ required: true, maxLength: 8, minLength: 8,  })} />
                 <i className="fa-lg " onClick={togglePasswordVisiblity}>{eye}</i>
+
+                {errors.password && errors.password.type === "required" 
+                 &&  (<span className="error-message">Input your password</span>)}
+
+                 {errors.password && errors.password.type === "maxLength" 
+                 &&  (<span className="error-message">Password must be eight characters long</span>)}
+
+                 {errors.password && errors.password.type === "minLength" 
+                 &&  (<span className="error-message">Keep typing till it's up to 8</span>)}
             </div>
     
             <div className=" mt-8 ">
-                <input type="submit" value="Login" className="py-3 rounded custom-btn text-center w-full" />
+                <input type="submit" value="Login" className="py-3 rounded custom-btn text-center w-full" name="submit" />
                 <div >
                     <a href="#"><span>Forgot password?</span></a>
                 </div>
