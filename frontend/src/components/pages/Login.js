@@ -52,11 +52,14 @@ const Login = () => {
             </div>
     
             <div className="mt-5">
+                <div>
                 <label htmlFor="password">Password</label>
                 <input type={passwordShown ? "text" : "password"} id="password" name="password"
                  className="block w-full custom-input p-2  rounded "
                  ref={register({ required: true, maxLength: 8, minLength: 8,  })} />
                 <i className="fa-lg " onClick={togglePasswordVisiblity}>{eye}</i>
+                </div>
+               
 
                 {errors.password && errors.password.type === "required" 
                  &&  (<span className="error-message">Fill in your Username password</span>)}

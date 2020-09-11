@@ -249,10 +249,12 @@
 }
 
 i {
-    position: absolute;
-    top: 52%;
-    right: 39%;
-   
+    position: relative;
+    float: right;
+    margin-top: -30px;
+    padding-right: 10px;
+    z-index: 1;
+    cursor:pointer;
   }
   i:hover {
     cursor: pointer;
