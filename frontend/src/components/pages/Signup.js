@@ -90,7 +90,7 @@ const togglePasswordVisiblity = () => {
                  &&  (<span className="error-message">Password must be eight characters long</span>)} 
 
                  {errors.password && errors.password.type === "minLength" 
-                 &&  (<span className="error-message">Password must have at least 8 characters</span>)} 
+                 &&  (<span className="error-message">Password must be 8 characters long</span>)} 
             </div>
     
             <div className="mt-5">

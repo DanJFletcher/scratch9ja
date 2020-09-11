@@ -59,13 +59,13 @@ const Login = () => {
                 <i className="fa-lg " onClick={togglePasswordVisiblity}>{eye}</i>
 
                 {errors.password && errors.password.type === "required" 
-                 &&  (<span className="error-message">Input your password</span>)}
+                 &&  (<span className="error-message">Fill in your Username password</span>)}
 
                  {errors.password && errors.password.type === "maxLength" 
-                 &&  (<span className="error-message">Password must be eight characters long</span>)}
+                 &&  (<span className="error-message">Password has exceeded eight characters</span>)}
 
                  {errors.password && errors.password.type === "minLength" 
-                 &&  (<span className="error-message">Keep typing till it's up to 8</span>)}
+                 &&  (<span className="error-message">Password is lesser than 8 characters</span>)}
             </div>
     
             <div className=" mt-8 ">
