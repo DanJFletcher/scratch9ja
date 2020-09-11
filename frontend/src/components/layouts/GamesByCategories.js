@@ -1,15 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useContext} from 'react'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import GameBox from '../objects/GameBox'
-import game1 from '../../imgs/jackpot.png'
-import game2 from '../../imgs/1banker.png'
-import game3 from '../../imgs/2sure.png'
-import game4 from '../../imgs/mega4.png'
-import game5 from '../../imgs/lucky3.png'
-import game6 from '../../imgs/jackpot.png'
+import game1 from '../../imgs/goldenjackpot.png'
+import game2 from '../../imgs/football1.jpg'
+import game3 from '../../imgs/football2.jpg'
+import game4 from '../../imgs/wazojackpot.jpg'
+import game5 from '../../imgs/birthday1.png'
+import game6 from '../../imgs/dettydecember1.png'
+import HeaderViewContext from '../../contexts/HeaderViewContext'
 
 
 
-const GamesByCategories = () => {
+const GamesByCategories = (props) => {
+
+    //const toggleHeaderView  = useContext(HeaderViewContext)
+    //const {toggleHeaderView} = props.toggleHeaderView
+
+    const headerToggle = (condition) =>{
+        props.toggleHeaderView(condition)
+    }
+
+    const categoriesTabRef = useRef(null)
+    // useScrollPosition( ({currPos}) =>{
+    //     if(-(currPos.y) >= categoriesTabRef.current.offsetTop){
+    //         headerToggle(true)
+    //     }else{
+    //         headerToggle(false)
+    //     }
+    // })
 
     const [currentCategory, setCurrentCategory] = useState(0)
     
@@ -29,7 +47,7 @@ const GamesByCategories = () => {
         )
     })
 
-     const games = [
+    const games = [
         {id: 1, image: game1, title: 'fast cash', price: 500.00, category: 1},
         {id: 2, image: game2, title: 'sharp win', price: 200.00, category: 1},
         {id: 3, image: game3, title: 'beta plus', price: 500.00, category: 2},
@@ -38,6 +56,7 @@ const GamesByCategories = () => {
         {id: 6, image: game6, title: 'win direct', price: 1000.00, category: 3},
     ]
 
+    //filter and populate the games list by current category
     const gamesList = games.filter(game => (game.category === (currentCategory) || currentCategory === 0))
     .map(game => {
         return (
@@ -48,6 +67,7 @@ const GamesByCategories = () => {
 
     const filterCategory = (categoryId) => {
 
+        //update the current category
         var updatedCategories = categories.map(category => {
             if(category.id === categoryId){
                 category.isActive = true
@@ -65,11 +85,10 @@ const GamesByCategories = () => {
         
     }
 
-
     return (
         <div>
 
-            <div className="custom-tabs flex justify-center mt-40 mb-8">
+            <div ref={categoriesTabRef} className="custom-tabs flex justify-center mt-40 mb-8">
                 <div className="tab-container pt-5 pb-5">
                     <div className="flex">
                         {categoriesTab}

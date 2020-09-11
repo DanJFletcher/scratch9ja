@@ -3,12 +3,14 @@ import * as Icon from 'react-feather';
 import { Tooltip} from '@trendmicro/react-tooltip';
 
 const GameBox = (props) => {
+    const gameImage = 'url('+props.image+')'
+
     return (
         <div>
 
             <a href="#" key={props.id} className="game-box">
                 <div className="image flex justify-center">
-                    <img src={props.image} alt="game"/>
+                    <span className="img-box" style={{ background: gameImage, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}></span>
                 </div>
 
                 <div className="content flex justify-between">

@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {A} from 'hookrouter'
 import logo from '../../imgs/logo.png'
 import * as Icon from 'react-feather';
 import { Tooltip} from '@trendmicro/react-tooltip';
+import { HeaderViewContext } from '../../contexts/HeaderViewContext';
 
-const Header = () => {
+const Header = (props) => {
 
-
+    //const showHeader = useContext(HeaderViewContext)
+    const headerStyleClass = props.headerView ? "stay_on_top" : ""
     return (
         <div>
-            <div className="flex justify-between w-full page-header">
+            <div className={"flex justify-between w-full page-header " + headerStyleClass }>
                 <div className=" logo justify-between ">
                     <img src={logo} alt="logo"/>
                 </div>
@@ -20,9 +22,14 @@ const Header = () => {
                 </div>
 
                 <div className="flex justify-between ctas">
-                    <Tooltip placement="top" content="View Cart">
-                        <Icon.ShoppingCart />
-                    </Tooltip>
+                    <div className="cart-container">
+                        <Tooltip placement="top" content="View Cart">
+                            <Icon.ShoppingCart />
+                        </Tooltip>
+                        <div className="flex justify-center cart-counter">
+                            <span>5</span>
+                        </div>
+                    </div>
 
                     <A href="/login" className="custom-btn header-btn">
                         <span> login </span>

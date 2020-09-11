@@ -1,6 +1,7 @@
 import React from 'react';
 import {useRoutes} from 'hookrouter'
 import routes from './components/routes/RouteList'
+//import HeaderViewContextProvider from './contexts/HeaderViewContext';
 
 function App() {
 
@@ -8,8 +9,11 @@ function App() {
 
   return (
     <div className="App">
-
-      {routeResult}
+      
+      {/* <HeaderViewContextProvider> */}
+        {routeResult}
+      {/* </HeaderViewContextProvider> */}
+      
 
     </div>
   );
