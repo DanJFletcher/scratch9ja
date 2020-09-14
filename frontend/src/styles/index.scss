@@ -92,7 +92,7 @@
         width: 700px;
         text-align: center;
         align-self: auto;
-        margin-top: 14%;
+        margin-top: 17%;
 
         h1{
             font-size: 60px;
@@ -114,6 +114,13 @@
     }
 }
 
+.custom-tabs{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--theme-bg-color);
+}
+
 .tab-container .flex{
     grid-gap: 40px;
 }
@@ -130,15 +137,16 @@
         transition: all ease .2s;
     }
 
+    &.active span{
+        color: var(--theme-color1);
+    }
+
     &.active::after{
         content: "";
         position: absolute;
         bottom: -5px;
         display: block;
-        //height: 2px;
         width: 100%;
-        //background: var(--theme-color1);
-        //border-radius: 100%;
         outline: 2px dashed var(--theme-color1);
     }
 
@@ -215,6 +223,7 @@
 
 .game-highlight{
     padding: 100px 0 50px 0;
+    border-bottom: 5px solid var(--theme-bg-variant);
 
     .text-content{
         width: 500px;

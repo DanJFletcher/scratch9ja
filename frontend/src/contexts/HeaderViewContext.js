@@ -6,12 +6,12 @@ const HeaderViewContextProvider = (props) => {
 
     const [showHeader, setShowHeader] = useState(false)
 
-    const toggleHeaderView = () => {
-        setShowHeader(!showHeader)
+    const toggleHeaderView = (condition) => {
+        setShowHeader(condition)
     }
 
     return (
-        <HeaderViewContext.Provider value={{showHeader, toggleHeaderView}}>
+        <HeaderViewContext.Provider value={{showHeader, toggleHeaderView }}>
             {props.children}
         </HeaderViewContext.Provider>
     );

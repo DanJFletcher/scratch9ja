@@ -5,7 +5,7 @@ import Signup from '../pages/Signup';
 import HeaderViewContextProvider from '../../contexts/HeaderViewContext';
 
 const routes = {
-    "/": () =>  <Homepage />,
+    "/": () => <HeaderViewContextProvider> <Homepage /> </HeaderViewContextProvider>,
     "/login": () => <Login />, 
     "/Signup": () => <Signup />, 
 }

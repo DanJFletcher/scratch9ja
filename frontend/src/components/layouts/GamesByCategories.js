@@ -7,27 +7,11 @@ import game3 from '../../imgs/football2.jpg'
 import game4 from '../../imgs/wazojackpot.jpg'
 import game5 from '../../imgs/birthday1.png'
 import game6 from '../../imgs/dettydecember1.png'
-import HeaderViewContext from '../../contexts/HeaderViewContext'
+import { HeaderViewContext } from '../../contexts/HeaderViewContext'
 
 
 
-const GamesByCategories = (props) => {
-
-    //const toggleHeaderView  = useContext(HeaderViewContext)
-    //const {toggleHeaderView} = props.toggleHeaderView
-
-    const headerToggle = (condition) =>{
-        props.toggleHeaderView(condition)
-    }
-
-    const categoriesTabRef = useRef(null)
-    // useScrollPosition( ({currPos}) =>{
-    //     if(-(currPos.y) >= categoriesTabRef.current.offsetTop){
-    //         headerToggle(true)
-    //     }else{
-    //         headerToggle(false)
-    //     }
-    // })
+const GamesByCategories = () => {
 
     const [currentCategory, setCurrentCategory] = useState(0)
     
@@ -85,10 +69,28 @@ const GamesByCategories = (props) => {
         
     }
 
+
+
+
+
+
+    //make categories tab sticky when scrolled past
+
+    const [isCategoriesTabSticky, setIsCategoriesTabSticky] = useState(false)
+
+    const categoriesTabRef = useRef(null)
+    useScrollPosition( ({currPos}) =>{
+        if(-(currPos.y) >= categoriesTabRef.current.offsetTop){
+            //toggleHeaderView(true)
+        }else{
+            //toggleHeaderView(false)
+        }
+    })
+
     return (
         <div>
 
-            <div ref={categoriesTabRef} className="custom-tabs flex justify-center mt-40 mb-8">
+            <div ref={categoriesTabRef} className="flex justify-center mt-40 mb-8 custom-tabs">
                 <div className="tab-container pt-5 pb-5">
                     <div className="flex">
                         {categoriesTab}

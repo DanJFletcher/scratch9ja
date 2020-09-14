@@ -5,10 +5,11 @@ import * as Icon from 'react-feather';
 import { Tooltip} from '@trendmicro/react-tooltip';
 import { HeaderViewContext } from '../../contexts/HeaderViewContext';
 
-const Header = (props) => {
+const Header = () => {
 
-    //const showHeader = useContext(HeaderViewContext)
-    const headerStyleClass = props.headerView ? "stay_on_top" : ""
+    const { showHeader } = useContext(HeaderViewContext)
+    const headerStyleClass = showHeader ? "stay_on_top" : ""
+
     return (
         <div>
             <div className={"flex justify-between w-full page-header " + headerStyleClass }>
@@ -16,10 +17,10 @@ const Header = (props) => {
                     <img src={logo} alt="logo"/>
                 </div>
 
-                <div className="preferred-items">
+                {/* <div className="preferred-items">
                     <input type="text" placeholder="What will you love to win?"/>
                     <span> <Icon.Search /> </span>
-                </div>
+                </div> */}
 
                 <div className="flex justify-between ctas">
                     <div className="cart-container">
