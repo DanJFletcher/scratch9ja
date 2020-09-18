@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {A} from 'hookrouter'
 import logo from '../../imgs/logo.png'
-import * as Icon from 'react-feather';
+import { FiSearch, FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
 import { HeaderViewContext } from '../../contexts/HeaderViewContext';
 
@@ -25,12 +25,12 @@ const Header = () => {
                 <div className="flex justify-between ctas">
                     <div className="cart-container">
                         <Tooltip placement="top" content="View Cart">
-                            <Icon.ShoppingCart />
+                            <FiShoppingCart />
                         </Tooltip>
                         <div className="flex justify-center cart-counter">
                             <span>5</span>
                         </div>
-                    </div>
+                    </div> 
 
                     <A href="/login" className="custom-btn header-btn">
                         <span> login </span>

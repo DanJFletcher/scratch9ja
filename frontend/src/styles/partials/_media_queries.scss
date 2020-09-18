@@ -1,0 +1,44 @@
+
+//declare viewport breakpoints
+
+@mixin large-tablet{
+    @media(max-width: 1112px){
+        @content;
+    }
+}
+
+@mixin medium-tablet{
+    @media(max-width: 992px){
+        @content;
+    }
+}
+
+@mixin small-tablet{
+    @media(max-width: 768px){
+        @content;
+    }
+}
+
+@mixin mobile-576{
+    @media(max-width: 576px){
+        @content;
+    }
+}
+
+@mixin mobile-375{
+    @media(max-width: 375px){
+        @content;
+    }
+}
+
+@mixin mobile-360{
+    @media(max-width: 360px){
+        @content;
+    }
+}
+
+@mixin mobile-320{
+    @media(max-width: 320px){
+        @content;
+    }
+}

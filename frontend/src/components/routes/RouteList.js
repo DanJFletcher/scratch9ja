@@ -7,7 +7,7 @@ import HeaderViewContextProvider from '../../contexts/HeaderViewContext';
 const routes = {
     "/": () => <HeaderViewContextProvider> <Homepage /> </HeaderViewContextProvider>,
     "/login": () => <Login />, 
-    "/Signup": () => <Signup />, 
+    "/signup": () => <Signup />, 
 }
 
 export default routes;

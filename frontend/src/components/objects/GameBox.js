@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Icon from 'react-feather';
+import { FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
 
 const GameBox = (props) => {
@@ -20,7 +20,7 @@ const GameBox = (props) => {
                     </div>
                     <div className="cta flex justify-center">
                         <Tooltip placement="top" content="Add To Cart">
-                            <Icon.ShoppingCart />
+                            <FiShoppingCart />
                         </Tooltip>
                     </div>
                 </div>

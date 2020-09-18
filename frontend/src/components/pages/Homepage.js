@@ -4,6 +4,8 @@ import Header from '../layouts/Header'
 import GamesByCategories from '../layouts/GamesByCategories'
 import footballgame from '../../imgs/football.jpg'
 import birthday from '../../imgs/birthday1.png'
+import { FaChevronRight } from "react-icons/fa"
+import PageDivider from '../objects/PageDivider'
 
 
 const Homepage = () => {
@@ -20,12 +22,14 @@ const Homepage = () => {
                     <h1>Experience The Fun</h1>
                     <p>All games, All seasons, We've got you! <br/> Scratch & Win Card Games.</p>
 
-                    <a href="#" className="custom-btn">
+                    <a href="#game-categories-tab" className="custom-btn with-icon">
                         <span>get started</span>
+                        <i className="ml-3"><FaChevronRight /></i> 
                     </a>
                 </div>
             </div>
 
+            <PageDivider />
             
 
             <div className="flex justify-around game-highlight">
@@ -41,7 +45,10 @@ const Homepage = () => {
                 </div>
             </div>
 
-            <div className="flex justify-around game-highlight">
+            <PageDivider />
+
+
+            <div className="flex justify-around game-highlight reversed">
                 
                 <div className="img-content img-content-ver flex justify-center">
                     <img src={birthday} alt="birthday"/>
@@ -55,6 +62,8 @@ const Homepage = () => {
                     </a>
                 </div>
             </div>
+
+            <PageDivider />
 
             <GamesByCategories/>
 

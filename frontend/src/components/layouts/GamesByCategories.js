@@ -7,7 +7,6 @@ import game3 from '../../imgs/football2.jpg'
 import game4 from '../../imgs/wazojackpot.jpg'
 import game5 from '../../imgs/birthday1.png'
 import game6 from '../../imgs/dettydecember1.png'
-import { HeaderViewContext } from '../../contexts/HeaderViewContext'
 
 
 
@@ -32,12 +31,12 @@ const GamesByCategories = () => {
     })
 
     const games = [
-        {id: 1, image: game1, title: 'fast cash', price: 500.00, category: 1},
-        {id: 2, image: game2, title: 'sharp win', price: 200.00, category: 1},
-        {id: 3, image: game3, title: 'beta plus', price: 500.00, category: 2},
-        {id: 4, image: game4, title: 'yafun yafun', price: 100.00, category: 2},
-        {id: 5, image: game5, title: 'scratch hammer', price: 1000.00, category: 3},
-        {id: 6, image: game6, title: 'win direct', price: 1000.00, category: 3},
+        {id: 1, image: game1, title: 'golden jackpot', price: 500.00, category: 1},
+        {id: 2, image: game2, title: 'find the ball', price: 200.00, category: 2},
+        {id: 3, image: game3, title: 'find the ball', price: 500.00, category: 2},
+        {id: 4, image: game4, title: 'wazo jackpot', price: 100.00, category: 1},
+        {id: 5, image: game5, title: 'birthday', price: 1000.00, category: 3},
+        {id: 6, image: game6, title: 'detty december', price: 1000.00, category: 3},
     ]
 
     //filter and populate the games list by current category
@@ -69,28 +68,23 @@ const GamesByCategories = () => {
         
     }
 
-
-
-
-
-
-    //make categories tab sticky when scrolled past
-
+    //add some styles to sticky categories tab
     const [isCategoriesTabSticky, setIsCategoriesTabSticky] = useState(false)
-
     const categoriesTabRef = useRef(null)
+    const stickyStyles = isCategoriesTabSticky ? "is-sticky" : ""
+
     useScrollPosition( ({currPos}) =>{
         if(-(currPos.y) >= categoriesTabRef.current.offsetTop){
-            //toggleHeaderView(true)
+            setIsCategoriesTabSticky(true)
         }else{
-            //toggleHeaderView(false)
+            setIsCategoriesTabSticky(false)
         }
     })
 
     return (
         <div>
 
-            <div ref={categoriesTabRef} className="flex justify-center mt-40 mb-8 custom-tabs">
+            <div id="game-categories-tab" ref={categoriesTabRef} className={"flex justify-center mt-40 mb-8 custom-tabs " + stickyStyles}>
                 <div className="tab-container pt-5 pb-5">
                     <div className="flex">
                         {categoriesTab}
