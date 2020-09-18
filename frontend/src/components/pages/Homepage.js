@@ -4,6 +4,7 @@ import Header from '../layouts/Header'
 import GamesByCategories from '../layouts/GamesByCategories'
 import footballgame from '../../imgs/football.jpg'
 import birthday from '../../imgs/birthday1.png'
+import Faqs from '../layouts/Faqs'
 
 
 const Homepage = () => {
@@ -57,6 +58,7 @@ const Homepage = () => {
             </div>
 
             <GamesByCategories/>
+            <Faqs/>
 
             
 

@@ -70,10 +70,6 @@ const GamesByCategories = () => {
     }
 
 
-
-
-
-
     //make categories tab sticky when scrolled past
 
     const [isCategoriesTabSticky, setIsCategoriesTabSticky] = useState(false)

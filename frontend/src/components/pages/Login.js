@@ -4,6 +4,7 @@ import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { ArrowLeftCircle } from 'react-feather';
 
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
 
  // handle submit
 
-           const { register, handleSubmit, errors} = useForm({});
+           const { register, handleSubmit, errors, watch} = useForm({});
             const onSubmit =  (data, e) => {
                 console.log(data);
                 e.target.reset();
@@ -31,10 +32,21 @@ const Login = () => {
             setPasswordShown(passwordShown ? false:  true );
         };
 
+        // watch inputs
+        const watchAllFields = watch();
+
 
     return (
 <div className="form-bg flex justify-center page-header" style={{ background:  loginBg }} >
+    
+ 
    <div className="text-content container mx-auto p-2 ">
+   <li className="back">
+   <a className="nav-link" href="/">
+       <ArrowLeftCircle className="back-icon" />
+       back
+   </a>
+</li>
      <div className="max-w-sm mx-auto justify-center px-5 py-10 rounded shadow-xl">
     
             <div className="flex mx-40 logo justify-between mb-8">
@@ -56,19 +68,19 @@ const Login = () => {
                 <label htmlFor="password">Password</label>
                 <input type={passwordShown ? "text" : "password"} id="password" name="password"
                  className="block w-full custom-input p-2  rounded "
-                 ref={register({ required: true, maxLength: 8, minLength: 8,  })} />
+                 ref={register({ required: true,  minLength: 12,  })} />
                 <i className="fa-lg " onClick={togglePasswordVisiblity}>{eye}</i>
                 </div>
                
 
                 {errors.password && errors.password.type === "required" 
-                 &&  (<span className="error-message">Fill in your Username password</span>)}
+                 &&  (<span className="error-message">Fill in your password</span>)}
 
-                 {errors.password && errors.password.type === "maxLength" 
-                 &&  (<span className="error-message">Password has exceeded eight characters</span>)}
+                 {/* {errors.password && errors.password.type === "maxLength" 
+                 &&  (<span className="error-message">Password has exceeded twelve characters</span>)} */}
 
                  {errors.password && errors.password.type === "minLength" 
-                 &&  (<span className="error-message">Password is lesser than 8 characters</span>)}
+                 &&  (<span className="error-message">Password must be minimum of 8 characters</span>)}
             </div>
     
             <div className=" mt-8 ">

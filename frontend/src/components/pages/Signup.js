@@ -4,6 +4,7 @@ import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { ArrowLeftCircle } from 'react-feather';
 
 
 const SignUp = () => {
@@ -39,6 +40,13 @@ const togglePasswordVisiblity = () => {
  <div className="form-bg flex justify-center page-header" style={{ background:  loginBg }} >
         
     <div className="text-content container mx-auto p-2 ">
+        
+ <li className="back">
+   <a className="nav-link" href="/">
+       <ArrowLeftCircle className="back-icon" />
+       back
+   </a>
+</li>
        
         <div className="max-w-sm mx-auto justify-center px-5  rounded shadow-xl">
     
@@ -80,17 +88,17 @@ const togglePasswordVisiblity = () => {
                 <label htmlFor="password">Password</label>
                 <input type={passwordShown ? "text" : "password"} id="password" name="password"
                  className="block w-full custom-input p-2  rounded "
-                 ref={register({required: true, maxLength: 8, minLength: 8,  })} />
+                 ref={register({required: true, maxLength: 8, minLength: 12,  })} />
                 <i className="fa-lg " onClick={togglePasswordVisiblity}>{eye}</i>
 
                 {errors.password && errors.password.type === "required"     
                  &&  (<span className="error-message">Input your password</span>)}  
 
                  {errors.password && errors.password.type === "maxLength" 
-                 &&  (<span className="error-message">Password must be eight characters long</span>)} 
+                 &&  (<span className="error-message">Password has exceeded twelve characters</span>)} 
 
                  {errors.password && errors.password.type === "minLength" 
-                 &&  (<span className="error-message">Password must be 8 characters long</span>)} 
+                 &&  (<span className="error-message">Password must be minimum of 8 characters </span>)} 
             </div>
     
             <div className="mt-5">
