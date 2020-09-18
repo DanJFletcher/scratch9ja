@@ -486,3 +486,15 @@
     }
 }
 
+
+.back{
+    list-style: none;
+    position: relative;
+    top: -30%;
+}
+
+.back-icon{
+    width: 30px;
+    height: 30px;
+    color:  var(--theme-color1);
+}

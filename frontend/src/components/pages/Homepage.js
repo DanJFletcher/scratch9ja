@@ -66,6 +66,7 @@ const Homepage = () => {
             <PageDivider />
 
             <GamesByCategories/>
+            <Faqs/>
 
             
 
