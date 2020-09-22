@@ -273,10 +273,13 @@
     z-index: 1;
     background: var(--theme-bg-color);
 
+
+
     &.is-sticky{
         box-shadow: 0 1px 5px 2px var(--theme-shadow-color);
     }
 }
+
 
 .tab-container .flex{
     grid-gap: 40px;
@@ -497,4 +500,38 @@
     width: 30px;
     height: 30px;
     color:  var(--theme-color1);
+}
+
+.Accordion-name{
+    display: block;
+    color: var(--theme-text-color);
+    width: 100vmin;
+    height: 80px;
+    background: var(  --theme-bg-variant);
+    cursor: pointer;
+
+}
+.faq-header{
+    color: var(--theme-text-color);
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.faq-title{
+    font-weight: 400;
+    padding-left: 30px;
+    padding-top: 20px;
+    
+    
+}
+
+.tab-content{
+    background: var(  --theme-bg-variant);
+    color: var(--theme-text-color);
+    width: 100vmin;
+    margin-top: 2px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

@@ -6,6 +6,7 @@ import footballgame from '../../imgs/football.jpg'
 import birthday from '../../imgs/birthday1.png'
 import { FaChevronRight } from "react-icons/fa"
 import PageDivider from '../objects/PageDivider'
+import Faqs from '../layouts/Faqs'
 
 
 const Homepage = () => {
@@ -66,6 +67,9 @@ const Homepage = () => {
             <PageDivider />
 
             <GamesByCategories/>
+
+            <PageDivider />
+            
             <Faqs/>
 
             

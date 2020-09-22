@@ -26,8 +26,7 @@ const Login = () => {
         setPasswordShown(!passwordShown);
     };
 
-    // watch inputs
-    const watchAllFields = watch();
+
 
 
     return (
