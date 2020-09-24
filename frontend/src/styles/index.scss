@@ -505,7 +505,7 @@
 .Accordion-name{
     display: block;
     color: var(--theme-text-color);
-    width: 100vmin;
+    width: 150vmin;
     height: 80px;
     background: var(  --theme-bg-variant);
     cursor: pointer;
@@ -528,10 +528,16 @@
 .tab-content{
     background: var(  --theme-bg-variant);
     color: var(--theme-text-color);
-    width: 100vmin;
+    width: 150vmin;
     margin-top: 2px;
     padding-left: 30px;
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    font-size: larger;
+}
+
+.footer-styles{
+    color: var(--theme-grey);
+    font-size: 14px;
 }

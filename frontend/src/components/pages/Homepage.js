@@ -7,6 +7,7 @@ import birthday from '../../imgs/birthday1.png'
 import { FaChevronRight } from "react-icons/fa"
 import PageDivider from '../objects/PageDivider'
 import Faqs from '../layouts/Faqs'
+import Footer from '../layouts/Footer'
 
 
 const Homepage = () => {
@@ -72,6 +73,9 @@ const Homepage = () => {
             
             <Faqs/>
 
+            <PageDivider />
+
+            <Footer/>
             
 
         </div>

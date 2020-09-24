@@ -67,7 +67,7 @@ const Login = () => {
                         
                         <div className="mt-8 form-group">
                             <input type="submit" value="Login" className="py-3 rounded custom-btn text-center w-full" name="submit" />
-                            <a href="#"><span>Forgot password?</span></a>
+                            <A href="#"><span>Forgot password?</span></A>
                         </div>
 
                         <br/>
