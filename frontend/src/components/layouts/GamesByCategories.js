@@ -100,3 +100,5 @@ const GamesByCategories = () => {
 
 
 export default GamesByCategories;
+
+

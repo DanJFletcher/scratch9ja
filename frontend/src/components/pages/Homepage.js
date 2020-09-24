@@ -11,6 +11,8 @@ import GamesContextProvider from '../../contexts/GamesContext'
 import StickyCart from '../objects/StickyCart'
 import PageDivider from '../objects/PageDivider'
 import StickyCartToggleIndicator from '../objects/StickyCartToggleIndicator'
+import Faqs from '../layouts/Faqs'
+import Footer from '../layouts/Footer'
 
 
 const Homepage = () => {
@@ -89,6 +91,9 @@ const Homepage = () => {
 
             <Faqs/>
 
+            <PageDivider />
+
+            <Footer/>
             
 
         </div>

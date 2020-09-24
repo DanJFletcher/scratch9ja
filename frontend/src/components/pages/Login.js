@@ -26,6 +26,7 @@ const Login = () => {
         setPasswordShown(!passwordShown);
     };
 
+    
     return (
         <div className="form-bg flex justify-center page-header" style={{ background:  loginBg }} >
             <div className="text-content container mx-auto p-2 ">
@@ -64,7 +65,7 @@ const Login = () => {
                         
                         <div className="mt-8 form-group">
                             <input type="submit" value="Login" className="py-3 rounded custom-btn text-center w-full" name="submit" />
-                            <a href="#"><span>Forgot password?</span></a>
+                            <A href="#"><span>Forgot password?</span></A>
                         </div>
 
                         <br/>
