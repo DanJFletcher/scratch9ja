@@ -1,11 +1,11 @@
 import React from 'react';
+import StickyCartContextProvider from '../../contexts/StickyCartContext';
 import Homepage from '../pages/Homepage'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup';
-import HeaderViewContextProvider from '../../contexts/HeaderViewContext';
 
 const routes = {
-    "/": () => <HeaderViewContextProvider> <Homepage /> </HeaderViewContextProvider>,
+    "/": () => <StickyCartContextProvider> <Homepage /> </StickyCartContextProvider>,
     "/login": () => <Login />, 
     "/signup": () => <Signup />, 
 }

@@ -1,11 +1,16 @@
-import React, {useState, useRef} from 'react'
+import React from 'react'
 import banner from '../../imgs/banner.png'
 import Header from '../layouts/Header'
 import GamesByCategories from '../layouts/GamesByCategories'
-import footballgame from '../../imgs/football.jpg'
-import birthday from '../../imgs/birthday1.png'
+import perspective from '../../imgs/perspective.png'
+import global from '../../imgs/linesa.png'
+import footballVideo from '../../vids/video-football.mp4'
 import { FaChevronRight } from "react-icons/fa"
+import Faqs from '../layouts/Faqs'
+import GamesContextProvider from '../../contexts/GamesContext'
+import StickyCart from '../objects/StickyCart'
 import PageDivider from '../objects/PageDivider'
+import StickyCartToggleIndicator from '../objects/StickyCartToggleIndicator'
 
 
 const Homepage = () => {
@@ -14,7 +19,9 @@ const Homepage = () => {
 
     return (
         <div>
-
+            
+            <StickyCart />
+        
             <Header/>
 
             <div className="page-banner flex justify-center" style={{ background:  bannerBg }}> 
@@ -28,20 +35,19 @@ const Homepage = () => {
                     </a>
                 </div>
             </div>
-
-            <PageDivider />
+               
+            <StickyCartToggleIndicator />
             
 
             <div className="flex justify-around game-highlight">
                 <div className="text-content">
                     <h1>Where do you think <br/> the ball is... Lets play!</h1>
                     <p>Scratch the box where you think the ball should be, if you find the ball you win <b> &#8358; 50,000 </b>instantly</p>
-                    <a href="#" className="custom-btn">
-                        <span>Add To Cart</span>
-                    </a>
                 </div>
-                <div className="img-content flex justify-center">
-                    <img src={footballgame} alt="football"/>
+                <div className="media-content flex justify-center">
+                    <video autoplay="autoplay" loop>
+                        <source src={footballVideo} type="video/mp4" />
+                    </video>
                 </div>
             </div>
 
@@ -50,22 +56,37 @@ const Homepage = () => {
 
             <div className="flex justify-around game-highlight reversed">
                 
-                <div className="img-content img-content-ver flex justify-center">
-                    <img src={birthday} alt="birthday"/>
+                <div className="media-content flex justify-center">
+                    <img src={perspective} alt="birthday"/>
                 </div>
 
                 <div className="text-content">
-                    <h1>Gift something special to your friends and family</h1>
-                    <p>Scratch only one of the gift boxes what you find is what is you win.</p>
-                    <a href="#" className="custom-btn">
-                        <span>Add To Cart</span>
-                    </a>
+                    <h1>Bring back the <br/> fun in cards.</h1>
+                    <p>Play with family and friends. We have a series of options available just for you.</p>
+                    
                 </div>
             </div>
 
             <PageDivider />
 
-            <GamesByCategories/>
+
+            <div className="flex justify-around game-highlight">
+                <div className="text-content">
+                    <h1>Play now, from anywhere, on any device</h1>
+                    <p>Get your cards delivered to your preferred address. Order can be made from any device.</p>
+                </div>
+                <div className="media-content flex justify-center">
+                    <img src={global} alt="football"/>
+                </div>
+            </div>
+
+            <PageDivider />
+
+            <GamesContextProvider>
+                <GamesByCategories/>
+            </GamesContextProvider>
+
+
             <Faqs/>
 
             

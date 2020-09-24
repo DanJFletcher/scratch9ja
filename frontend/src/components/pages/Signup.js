@@ -33,12 +33,12 @@ const SignUp = () => {
                 
             <div className="text-content container mx-auto p-2 ">
 
-                <li className="back">
+                {/* <li className="back">
                     <A className="nav-link" href="/">
                         <ArrowLeftCircle className="back-icon" />
                         back
                     </A>
-                </li>
+                </li> */}
             
                 <div className="max-w-sm mx-auto justify-center px-5  rounded shadow-xl">
             

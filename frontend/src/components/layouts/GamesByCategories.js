@@ -1,17 +1,14 @@
 import React, {useState, useRef, useContext} from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import GameBox from '../objects/GameBox'
-import game1 from '../../imgs/goldenjackpot.png'
-import game2 from '../../imgs/football1.jpg'
-import game3 from '../../imgs/football2.jpg'
-import game4 from '../../imgs/wazojackpot.jpg'
-import game5 from '../../imgs/birthday1.png'
-import game6 from '../../imgs/dettydecember1.png'
+import { GamesContext } from '../../contexts/GamesContext'
+
 
 
 
 const GamesByCategories = () => {
 
+    const { games } = useContext(GamesContext)
     const [currentCategory, setCurrentCategory] = useState(0)
     
     const [categories, setCategories] = useState([
@@ -30,20 +27,12 @@ const GamesByCategories = () => {
         )
     })
 
-    const games = [
-        {id: 1, image: game1, title: 'golden jackpot', price: 500.00, category: 1},
-        {id: 2, image: game2, title: 'find the ball', price: 200.00, category: 2},
-        {id: 3, image: game3, title: 'find the ball', price: 500.00, category: 2},
-        {id: 4, image: game4, title: 'wazo jackpot', price: 100.00, category: 1},
-        {id: 5, image: game5, title: 'birthday', price: 1000.00, category: 3},
-        {id: 6, image: game6, title: 'detty december', price: 1000.00, category: 3},
-    ]
 
     //filter and populate the games list by current category
     const gamesList = games.filter(game => (game.category === (currentCategory) || currentCategory === 0))
     .map(game => {
         return (
-            <GameBox id={game.id} image={game.image} title={game.title} price={game.price} /> 
+            <GameBox id={game.id} image={game.image} title={game.title} price={game.price} isNew={game.isNew} /> 
         )
         
     }) 
@@ -84,8 +73,8 @@ const GamesByCategories = () => {
     return (
         <div>
 
-            <div id="game-categories-tab" ref={categoriesTabRef} className={"flex justify-center mt-40 mb-8 custom-tabs " + stickyStyles}>
-                <div className="tab-container pt-5 pb-5">
+            <div id="game-categories-tab" ref={categoriesTabRef} className={"flex justify-center mt-10 mb-8 custom-tabs " + stickyStyles}>
+                <div className="tab-container">
                     <div className="flex">
                         {categoriesTab}
                     </div>

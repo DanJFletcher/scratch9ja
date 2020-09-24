@@ -26,10 +26,6 @@ const Login = () => {
         setPasswordShown(!passwordShown);
     };
 
-    // watch inputs
-    const watchAllFields = watch();
-
-
     return (
         <div className="form-bg flex justify-center page-header" style={{ background:  loginBg }} >
             <div className="text-content container mx-auto p-2 ">

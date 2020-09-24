@@ -4,12 +4,33 @@
 @import 'partials/media_queries';
 
 
-// Header Styles
+// Helper Styles
 @mixin headerIconStyle($color) {
     height: 30px;
     width: 30px;
     stroke: $color;
 }
+
+@mixin cartCounterStyle{
+    position: absolute;
+    right: -15px;
+    top: -10px;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: 20px;
+    background: var(--theme-color1);
+    box-sizing: content-box;
+
+    span{
+        font-size: 14px;
+        font-weight: 900;
+        color: #202323;
+    }
+}
+
+
+
+
 
 .page-header{
     position: absolute;
@@ -71,17 +92,7 @@
 
     .cart-counter{
         position: absolute;
-        left: -5px;
-        top: -5px;
-        height: 20px;
-        width: 20px;
-        border-radius: 100%;
-        background: var(--theme-color1);
-
-        span{
-            font-size: 14px;
-            font-weight: 900;
-        }
+        @include cartCounterStyle()
     }
 }
 
@@ -150,7 +161,11 @@
     padding: 100px 0;
     
     @include medium-tablet{
-        flex-direction: column-reverse;
+        flex-direction: column;
+    }
+
+    @include mobile-576{
+        padding: 50px 0;
     }
 
     .text-content{
@@ -171,7 +186,7 @@
             margin-bottom: 10px;
 
             @include mobile-576{
-                font-size: 35px;
+                font-size: 30px;
             }
         }
 
@@ -190,79 +205,45 @@
         }
     }
 
-    .img-content{
-        height: 350px;
-        width: 600px;
-        outline: 3px dashed var(--theme-color1);
-        box-shadow: 0 0 0 3px var(--theme-bg-color);
-        animation: .2s animateBorder ease infinite;
-
-        @keyframes animateBorder {
-            to {
-              outline-color: var(--theme-bg-color);
-              box-shadow: 0 0 0 3px var(--theme-color1);
-            }
-        }
-
-        @include large-tablet{
-            height: 250px;
-            width: 450px;
-        }
-
-        @include medium-tablet{
-            margin-bottom: 40px;
-        }
-
-        @include mobile-576{
-            width: 360px;
-            height: 190px;
-        }
-
-        @include mobile-360{
-            width: 300px;
-            height: 160px;
-        }
+    .media-content{
 
         img{
-            height: 300px;
-            width: 550px;
+            height: 350px;
+            width: 600px;
             border-radius: 10px;
             position: relative;
 
             @include large-tablet{
-                height: 230px;
-                width: 430px;
+                height: 250px;
+                width: 450px;
             }
-
+    
+            @include medium-tablet{
+                margin-bottom: 40px;
+            }
+    
             @include mobile-576{
-                width: 350px;
-                height: 180px;
+                width: 360px;
+                height: 190px;
             }
-
+    
             @include mobile-360{
-                width: 280px;
-                height: 150px;
+                width: 300px;
+                height: 160px;
             }
         }
-    }
 
-    .img-content-ver{
-        width: 300px;
-        height: 400px;
-
-        img{
-            width: 250px;
-            height: 350px; 
+        video{
+            margin: 10px;
+            border-radius: 10px;
         }
-        
     }
-
 
 }
 
 .game-highlight.reversed{
     @include medium-tablet{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 }
 
@@ -283,8 +264,18 @@
 }
 
 .tab-element{
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
     position: relative;
     cursor: pointer;
+
+    @include mobile-576{
+        padding: 10px 7px;
+    }
+
+    @include mobile-375{
+        padding: 10px 0;
+    }
 
     span{
         font-size: 30px;
@@ -298,17 +289,12 @@
         }
     }
 
-    &.active span{
-        color: var(--theme-color1);
-    }
+    &.active{
+        border-bottom: 2px solid var(--theme-color1);
 
-    &.active::after{
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        display: block;
-        width: 100%;
-        outline: 2px dashed var(--theme-color1);
+        span{
+            color: var(--theme-color1);
+        }
     }
 
     &:hover span{
@@ -334,9 +320,16 @@
     position: relative;
 
     @include medium-tablet{
-        column-gap: 0;
+        column-gap: auto;
         width: 100%;
-        justify-content: space-between;
+    }
+
+    @include mobile-576{
+        column-gap: 14px;
+    }
+
+    @include mobile-375{
+        column-gap: 18px
     }
 
     &::after{
@@ -348,7 +341,14 @@
         height: 50px;
         width: 100%;
         background: linear-gradient(to bottom, transparent var(--theme-grey)) 70%;
-    } 
+    }
+ 
+}
+
+.categories-games-container > div:nth-child(even){
+    @include mobile-576{
+        margin-top: 60px;
+    }
 }
 
 .game-box{
@@ -358,6 +358,8 @@
     background: var(--theme-bg-variant);
     border-radius: 15px;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
     margin-bottom: 50px;
 
     @include medium-tablet{
@@ -371,6 +373,7 @@
     @include mobile-576{
         width: 180px;
         padding: 7px;
+        margin-bottom: 0;
     }
 
     @include mobile-375{
@@ -415,6 +418,8 @@
 
     .content{
         color: var(--theme-text-color);
+        //margin-bottom: 15px;
+        //border-bottom: 1px solid var(--theme-grey);
 
         .text h1{
             font-size: 20px;
@@ -442,6 +447,71 @@
             height: 30px;
             width: 30px;
         }
+    }
+
+    .new-tag{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30px;
+        width: 50px;
+        font-size: 14px;
+        background: var(--theme-color1);
+        border-radius: 15px 5px 15px 5px;
+
+        @include mobile-576{
+            font-size: 12px;
+            height: 20px;
+            width: 40px;
+        }
+
+        span{
+            font-weight: 900;
+            color: #202323;
+        }
+    }
+
+    .winning-price{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        //background: var(--theme-grey);
+        padding: 0 15px;
+        //border-top-left-radius: 5px;
+        //border-top-right-radius: 5px;
+
+        span{
+            color: var(--theme-grey);
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.sticky-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    background: var(--theme-bg-color);
+    z-index: 10;
+    box-shadow: 0 0 10px 5px var(--theme-bg-variant);
+    cursor: pointer;
+
+    svg{
+        color: var(--theme-text-color);
+        height: 30px;
+        width: 30px;
+    }
+
+    .cart-counter{
+        @include cartCounterStyle();
+        border: 3px solid var(--theme-bg-color);
     }
 }
 

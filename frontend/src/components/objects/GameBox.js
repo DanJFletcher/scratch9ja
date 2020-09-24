@@ -24,6 +24,12 @@ const GameBox = (props) => {
                         </Tooltip>
                     </div>
                 </div>
+
+                { props.isNew&& (<div className="flex justify-center new-tag"><span>new</span></div>)}
+
+                {/* <div className="flex winning-price">
+                    <span>top prize: &#8358;50,000</span>
+                </div> */}
             </a>
             
         </div>
