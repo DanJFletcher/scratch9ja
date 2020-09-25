@@ -3,7 +3,7 @@ import LoginBanner from '../../imgs/scratch9ja.png';
 import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa"
-import {A} from 'hookrouter'
+import { Link } from 'react-router-dom'
 
 
 const Login = () => {
@@ -65,13 +65,13 @@ const Login = () => {
                         
                         <div className="mt-8 form-group">
                             <input type="submit" value="Login" className="py-3 rounded custom-btn text-center w-full" name="submit" />
-                            <A href="#"><span>Forgot password?</span></A>
+                            <Link to="#"><span>Forgot password?</span></Link>
                         </div>
 
                         <br/>
 
                         <div>
-                            <span>Don't have an account? <A href="/signup"><strong>Create Account</strong></A> </span>
+                            <span>Don't have an account? <Link to="/signup"><strong>Create Account</strong></Link> </span>
                         </div>
 
                     </form>

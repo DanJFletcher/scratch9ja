@@ -1,6 +1,8 @@
 import React from 'react'
 import { FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
+import { Link } from 'react-router-dom'
+import GameTag from './GameTag';
 
 const GameBox = (props) => {
     const gameImage = 'url('+props.image+')'
@@ -8,7 +10,7 @@ const GameBox = (props) => {
     return (
         <div>
 
-            <a href="#" key={props.id} className="game-box">
+            <Link to={"/game/"+ props.id} key={props.id} className="game-box">
                 <div className="image flex justify-center">
                     <span className="img-box" style={{ background: gameImage, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}></span>
                 </div>
@@ -25,12 +27,12 @@ const GameBox = (props) => {
                     </div>
                 </div>
 
-                { props.isNew&& (<div className="flex justify-center new-tag"><span>new</span></div>)}
+                { props.isNew&& ( <GameTag text="new" placement="top-left" /> )}
 
                 {/* <div className="flex winning-price">
                     <span>top prize: &#8358;50,000</span>
                 </div> */}
-            </a>
+            </Link>
             
         </div>
     );

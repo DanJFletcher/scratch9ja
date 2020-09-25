@@ -3,7 +3,7 @@ import LoginBanner from '../../imgs/scratch9ja.png';
 import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa"
-import {A} from 'hookrouter'
+import { Link } from 'react-router-dom'
 
 
 const SignUp = () => {
@@ -107,7 +107,7 @@ const SignUp = () => {
                         <br/>
 
                         <div>
-                            <span>Already have an account? <A href="/login"><strong>Login</strong></A> </span>
+                            <span>Already have an account? <Link to="/login"><strong>Login</strong></Link> </span>
                         </div>
                         
                     </form>

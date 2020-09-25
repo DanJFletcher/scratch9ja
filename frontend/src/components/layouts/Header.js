@@ -1,5 +1,5 @@
 import React from 'react'
-import {A} from 'hookrouter'
+import { Link } from 'react-router-dom'
 import logo from '../../imgs/logo.png'
 import { FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
@@ -28,9 +28,9 @@ const Header = () => {
                         </div>
                     </div> 
 
-                    <A href="/login" className="custom-btn header-btn">
+                    <Link to="/login" className="custom-btn header-btn">
                         <span> login </span>
-                    </A>
+                    </Link>
                 </div>
             </div>
         </div>

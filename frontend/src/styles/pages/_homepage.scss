@@ -1,0 +1,417 @@
+
+
+
+// Helper Styles
+@mixin headerIconStyle($color) {
+    height: 30px;
+    width: 30px;
+    stroke: $color;
+}
+
+@mixin cartCounterStyle{
+    position: absolute;
+    right: -15px;
+    top: -10px;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: 20px;
+    background: var(--theme-color1);
+    box-sizing: content-box;
+
+    span{
+        font-size: 14px;
+        font-weight: 900;
+        color: #202323;
+    }
+}
+
+
+
+
+
+.page-header{
+    position: absolute;
+    top: 0;
+    padding: 15px 30px;
+    background: transparent;
+    z-index: 1;
+
+    @include mobile-576{
+        padding: 10px 20px;
+    }
+
+    .preferred-items{ 
+        position: relative;
+
+        input{
+            padding: 20px 30px;
+            width: 70vh;
+            background: var(--theme-bg-color);
+            border-radius: 10px;
+            color: var(--theme-text-color);
+            font-weight: 900;
+            box-shadow: 0 0 5px 1px var(--theme-shadow-color);
+        }
+
+        svg{
+            @include headerIconStyle(var(--theme-grey));
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
+    }
+
+    .logo{
+        width: 45px;
+
+        @include mobile-576{
+            width: 35px;
+        }
+    }
+
+    .ctas{
+        width: 150px;
+
+        @include mobile-576{
+            width: 120px;
+        }
+
+        svg{
+            @include headerIconStyle(var(--theme-text-color));
+            cursor: pointer;
+        }
+    }
+
+    .cart-container{
+        position: relative;
+    }
+
+    .cart-counter{
+        position: absolute;
+        @include cartCounterStyle()
+    }
+}
+
+
+// Homepage styles
+
+.page-banner{
+    width: 100%;
+    height: 650px;
+    position: relative;
+
+    @include mobile-576{
+        height: 500px;
+    }
+
+    .text-content{
+        color: #fff;
+        width: 700px;
+        text-align: center;
+        align-self: auto;
+        margin-top: 17%;
+
+        @include large-tablet{
+            margin-top: 20%;
+        }
+
+        @include medium-tablet{
+            margin-top: 25%;
+        }
+
+        @include mobile-576{
+            margin-top: 40%;
+        }
+
+        h1{
+            font-size: 60px;
+            font-family: var(--heading-text-font);
+            line-height: 1.1em;
+
+            @include mobile-576{
+                font-size: 45px;
+            }
+        }
+
+        p{
+            text-align: center;
+            font-size: 19px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+
+            b{
+                color: var(--theme-color1)
+            }
+        }
+    
+    }
+}
+
+.page-divider{
+    height: 10px;
+    width: 100%;
+    background: var(--theme-bg-variant);
+}
+
+.game-highlight{
+    padding: 100px 0;
+    
+    @include medium-tablet{
+        flex-direction: column;
+    }
+
+    @include mobile-576{
+        padding: 50px 0;
+    }
+
+    .text-content{
+        width: 500px;
+        color: var(--theme-text-color);
+
+        @include medium-tablet{
+            text-align: center;
+        }
+
+        @include mobile-576{
+            width: 100%;
+        }
+        
+        h1{
+            font-size: 45px;
+            font-family: var(--heading-text-font);
+            margin-bottom: 10px;
+
+            @include mobile-576{
+                font-size: 30px;
+            }
+        }
+
+        p{
+            font-size: 20px;
+            margin-bottom: 20px;
+
+            @include mobile-576{
+                font-size: 18px;
+                padding: 0 5px;
+            }
+
+            b{
+                color: var(--theme-color1)
+            }
+        }
+    }
+
+    .media-content{
+
+        img{
+            height: 350px;
+            width: 600px;
+            border-radius: 10px;
+            position: relative;
+
+            @include large-tablet{
+                height: 250px;
+                width: 450px;
+            }
+    
+            @include medium-tablet{
+                margin-bottom: 40px;
+            }
+    
+            @include mobile-576{
+                width: 360px;
+                height: 190px;
+            }
+    
+            @include mobile-360{
+                width: 300px;
+                height: 160px;
+            }
+        }
+
+        video{
+            margin: 10px;
+            border-radius: 10px;
+        }
+    }
+
+}
+
+.game-highlight.reversed{
+    @include medium-tablet{
+        flex-direction: column-reverse;
+    }
+}
+
+
+.custom-tabs{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--theme-bg-color);
+
+
+
+    &.is-sticky{
+        box-shadow: 0 1px 5px 2px var(--theme-shadow-color);
+    }
+}
+
+
+.tab-container .flex{
+    grid-gap: 40px;
+}
+
+.tab-element{
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    cursor: pointer;
+
+    @include mobile-576{
+        padding: 10px 7px;
+    }
+
+    @include mobile-375{
+        padding: 10px 0;
+    }
+
+    span{
+        font-size: 30px;
+        text-transform: capitalize;
+        color: var(--theme-text-color);
+        font-family: var(--heading-text-font);
+        transition: all ease .2s;
+
+        @include mobile-576{
+            font-size: 20px;
+        }
+    }
+
+    &.active{
+        border-bottom: 2px solid var(--theme-color1);
+
+        span{
+            color: var(--theme-color1);
+        }
+    }
+
+    &:hover span{
+        color: var(--theme-color1);
+    }
+}
+
+.categories-games{
+    padding: 15px 30px;
+    
+    @include mobile-576{
+        padding: 10px 20px;
+    }
+
+    @include mobile-360{
+        padding: 5px 10px;
+    }
+}
+
+.categories-games-container{
+    width: 900px;
+    column-gap: 70px;
+    position: relative;
+
+    @include medium-tablet{
+        column-gap: auto;
+        width: 100%;
+    }
+
+    @include mobile-576{
+        column-gap: 14px;
+    }
+
+    @include mobile-375{
+        column-gap: 18px
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        height: 50px;
+        width: 100%;
+        background: linear-gradient(to bottom, transparent var(--theme-grey)) 70%;
+    }
+ 
+}
+
+.categories-games-container > div:nth-child(even){
+    @include mobile-576{
+        margin-top: 60px;
+    }
+}
+
+
+.sticky-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    background: var(--theme-bg-color);
+    z-index: 10;
+    box-shadow: 0 0 10px 5px var(--theme-bg-variant);
+    cursor: pointer;
+
+    svg{
+        color: var(--theme-text-color);
+        height: 30px;
+        width: 30px;
+    }
+
+    .cart-counter{
+        @include cartCounterStyle();
+        border: 3px solid var(--theme-bg-color);
+    }
+}
+
+.Accordion-name{
+    display: block;
+    color: var(--theme-text-color);
+    width: 150vmin;
+    height: 80px;
+    background: var(  --theme-bg-variant);
+    cursor: pointer;
+
+}
+.faq-header{
+    color: var(--theme-text-color);
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.faq-title{
+    font-weight: 400;
+    padding-left: 30px;
+    padding-top: 20px;
+    
+    
+}
+
+.tab-content{
+    background: var(  --theme-bg-variant);
+    color: var(--theme-text-color);
+    width: 150vmin;
+    margin-top: 2px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: larger;
+}
+
+.footer-styles{
+    color: var(--theme-grey);
+    font-size: 14px;
+}

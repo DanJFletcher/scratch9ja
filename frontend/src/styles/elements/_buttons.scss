@@ -11,6 +11,7 @@
     color: #202323;
     font-family: var(--body-text-font);
     font-weight: 700;
+    cursor: pointer;
 
     @include mobile-576{
         padding: 15px 36px;
@@ -32,5 +33,37 @@
         i{
             align-self: center;
         }
+    }
+}
+
+
+
+.back-arrow{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    transition: ease all .2s;
+
+    svg{
+        color: var(--theme-color1);
+        height: 30px;
+        width: 30px;
+        align-self: center;
+    }
+
+    &:hover{
+        background: var(--theme-bg-variant);
+    }
+
+
+    &.game-details{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
     }
 }

@@ -1,0 +1,151 @@
+
+
+.game-box{
+    display: block;
+    width: 400px;
+    padding: 15px;
+    background: var(--theme-bg-variant);
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+
+    @include medium-tablet{
+        width: 350px;
+    }
+
+    @include small-tablet{
+        width: 300px;
+    }
+
+    @include mobile-576{
+        width: 180px;
+        padding: 7px;
+        margin-bottom: 0;
+    }
+
+    @include mobile-375{
+        width: 160px;
+        padding: 4px;
+    }
+
+    .image{
+        height: 320px;
+        @include medium-tablet{
+            height: 300px;
+        }
+
+        @include small-tablet{
+            height: 250px;
+        }
+
+        @include mobile-576{
+            height: 150px;
+        }
+
+        .img-box{
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+
+            @include medium-tablet{
+                height: 300px - (300px * 0.0625);
+            }
+    
+            @include small-tablet{
+                height: 250px - (250px * 0.0625);
+            }
+    
+            @include mobile-576{
+                height: 150px - (150px * 0.0625);
+            }
+        }
+
+        
+    }
+
+    .content{
+        color: var(--theme-text-color);
+        //margin-bottom: 15px;
+        //border-bottom: 1px solid var(--theme-grey);
+
+        .text h1{
+            font-size: 20px;
+            font-family: var(--heading-text-font);
+            font-weight: 700;
+            text-transform: capitalize;
+
+            @include mobile-576{
+                font-size: 15px;
+            }
+        }
+
+        .text span{
+            color: var(--theme-grey);
+            font-size: 18px;
+            font-weight: 700;
+
+            @include mobile-576{
+                font-size: 13px;
+            }
+        }
+
+        .cta svg{
+            stroke: var(--theme-color1);
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    
+
+    .winning-price{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        //background: var(--theme-grey);
+        padding: 0 15px;
+        //border-top-left-radius: 5px;
+        //border-top-right-radius: 5px;
+
+        span{
+            color: var(--theme-grey);
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+
+
+
+.game-tag{
+    
+    height: 30px;
+    width: 50px;
+    font-size: 14px;
+    background: var(--pri-green);
+    border-radius: 15px 5px 15px 5px;
+
+    &.top-left{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @include mobile-576{
+        font-size: 12px;
+        height: 20px;
+        width: 40px;
+    }
+
+    span{
+        font-weight: 900;
+        color: #fff;
+    }
+}
