@@ -415,3 +415,101 @@
     color: var(--theme-grey);
     font-size: 14px;
 }
+
+.Accordion-name{
+    display: block;
+    color: var(--theme-text-color);
+    width: 150vmin;
+    height: 80px;
+    background: var(  --theme-bg-variant);
+    cursor: pointer;
+    font-weight: 400;
+    padding-left: 30px;
+    padding-top: 20px;
+
+    @include medium-tablet{
+    font-size: x-large;
+    width: auto;
+    }
+
+    @include small-tablet{
+    font-size: larger;
+    width: auto;
+    }
+
+    @include mobile-576{
+    font-size: large;
+    width: auto;
+    }
+
+}
+
+
+.faq-header{
+    color: var(--theme-text-color);
+    margin-top: 50px;
+    padding-bottom: 30px;
+
+    @include medium-tablet{
+       font-size: 100px;
+    }
+
+    @include small-tablet{
+       font-size: x-large;
+    }
+
+    @include mobile-576{
+       font-size: x-large;
+    }
+}
+
+
+.Accordion-content{
+    background: var(  --theme-bg-variant);
+    color: var(--theme-text-color);
+    width: 150vmin;
+    margin-top: 2px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: larger;
+    @include medium-tablet{
+        font-size: larger;
+        width: auto;
+     }
+ 
+     @include small-tablet{
+        font-size: large;
+        width: auto;
+     }
+ 
+     @include mobile-576{
+        font-size: medium;
+        width: auto;
+     }
+    
+}
+
+.footer-styles{
+    color: var(--theme-grey);
+    font-size: 14px;
+    @include medium-tablet{
+        padding-left: auto;
+        padding-right: auto;
+        width: auto;
+     }
+ 
+     @include small-tablet{
+        padding-left: auto;
+        padding-right: auto;
+        width: auto;
+     }
+ 
+     @include mobile-576{
+        padding-left: 20px;
+        padding-right: 20px;
+        width: auto;
+
+     }
+}
