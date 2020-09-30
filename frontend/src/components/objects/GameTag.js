@@ -6,7 +6,7 @@ const GameTag = (props) => {
     return (
         <div>
 
-            <div className={"flex justify-center game-tag " + props.placement}>
+            <div className={"flex justify-center game-tag " + props.placement }>
                 <span>{props.text}</span>
             </div>
 

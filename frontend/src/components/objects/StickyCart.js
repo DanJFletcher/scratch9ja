@@ -3,10 +3,10 @@ import { Tooltip } from '@trendmicro/react-tooltip'
 import { FiShoppingCart } from 'react-icons/fi'
 import { StickyCartContext } from '../../contexts/StickyCartContext'
 
-const StickyCart = () => {
+const StickyCart = (props) => {
 
     const {isVisible} = useContext(StickyCartContext)
-    const visibility = isVisible ? "visible" : "invisible"
+    const visibility = isVisible || props.isVisible ? "visible" : "invisible"
 
     return (
         <div>

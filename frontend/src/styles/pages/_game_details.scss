@@ -6,41 +6,106 @@
     position: relative;
     overflow: hidden;
 
+    @include mobile-576{
+        overflow: visible;
+    }
+
 
     .game-datails-bg{
         width: 100%;
         height: 100%;
-        filter: blur(20px);
+        filter: blur(25px);
+
+        @include mobile-576{
+            height: 350px;
+        }
     }
+
+
+    .game-details-header{
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        padding: 20px;
+        width: 430px;
+
+        @include medium-tablet{
+            width: 400px;
+        }
+
+        @include small-tablet{
+            width: 370px;
+        }
+
+        @include mobile-576{
+            padding: 10px;
+            width: 100%;
+        }
+    }
+
     
     .game-details-content{
         position: absolute;
         top: 0;
         width: 100%;
         height: 100%;
+
+        @include mobile-576{
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 70px;
+        }
     }
     
     .text-content-container{
         height: 100%;
         background: linear-gradient(to right, var(--theme-bg-color) 60%, transparent);
         width: 50%;
-        padding: 100px 0 0 30px;
+        padding: 0 30px;
+
+        @include mobile-576{
+            width: 100%;
+            background: linear-gradient(to top, var(--theme-bg-color) 60%, transparent);
+            padding: 10px 20px;
+        }
     }
     
     .text-content{
+        width: 400px;
+
+        @include medium-tablet{
+            width: 350px;
+        }
+
+        @include mobile-576{
+            width: 100%;
+        }
     
         h1{
             color: var(--theme-text-color);
             font-family: var(--heading-text-font);
-            font-size: 35px;
+            font-size: 50px;
+            line-height: 1em;
             text-transform: capitalize;
+
+            @include small-tablet{
+                font-size: 35px;;
+            }
+        }
+
+        .prize, .description{
+            font-size: 20px;
+            
+            @include small-tablet{
+                font-size: 16px;
+            }
         }
     
         .prize{
             color: var(--theme-grey);
-            font-size: 16px;
             text-transform: uppercase;
             font-weight: 900;
+
     
             b{
                 color: var(--theme-color1)
@@ -48,10 +113,7 @@
         }
     
         .description{
-            background: var(--theme-bg-variant);
-            padding: 15px;
             border-radius: 15px;
-            width: 400px;
             margin-top: 20px;
     
             span{
@@ -63,7 +125,6 @@
         .cta{
     
             margin-top: 50px;
-            width: 400px;
     
             .price{
                 color: var(--theme-grey);
@@ -79,7 +140,84 @@
     .image-content{
         width: 50%;
 
+        @include mobile-576{
+            width: 100%;
+        }
+
         img{
+            border-radius: 10px;
+            box-shadow: 0 0 2px 2px var(--theme-bg-color);
+            
+            &.ver{
+                height: 450px;
+
+                @include mobile-576{
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+.game-details-body{
+    padding: 30px;
+
+    @include mobile-576{
+        margin-top: 70px;
+        padding: 30px 15px;
+    }
+}
+
+.sub-heading{
+    color: var(--theme-text-color);
+    font-family: var(--heading-text-font);
+    font-size: 35px;
+    text-transform: capitalize;
+
+    @include mobile-576{
+        font-size: 25px;
+    }
+}
+
+.game-version-container{
+    column-gap: 30px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.game-version-box{
+    padding: 10px;
+    border-radius: 15px;
+    background: var(--theme-bg-variant);
+    position: relative;
+
+    .image{
+        width: 300px;
+        height: 225px;
+        border-radius: 10px;
+
+        @include mobile-576{
+            width: 200px;
+            height: 150px;
+        }
+    }
+
+    .cta{
+        position: absolute;
+        left: 0;
+        top: 40%;
+        height: 40px;
+        width: 45px;
+        border-top-right-radius: 17px;
+        border-bottom-right-radius: 17px;
+        background: var(--theme-color1);
+        box-shadow: 2px 2px 2px 2px #202323;
+
+
+        svg{
+            color: #202323;
+            height: 25px;
+            width: 25px;
         }
     }
 }

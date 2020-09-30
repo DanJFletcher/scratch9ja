@@ -3,16 +3,16 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 import {useHistory } from 'react-router-dom'
 
 
-const BackArrow = (props) => {
+const BackArrow = () => {
 
     const history = useHistory()
 
     return (
         <div>
 
-                <div onClick={() => {history.goBack()}} className={"back-arrow " + props.for}>
-                    <HiArrowNarrowLeft />
-                </div>
+            <div onClick={() => {history.goBack()}} className={"back-arrow"}>
+                <HiArrowNarrowLeft />
+            </div>
 
         </div>
     );

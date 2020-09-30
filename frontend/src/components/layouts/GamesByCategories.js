@@ -29,12 +29,12 @@ const GamesByCategories = () => {
 
 
     //filter and populate the games list by current category
-    const gamesList = games.filter(game => (game.category === (currentCategory) || currentCategory === 0))
-    .map(game => {
-        return (
-            <GameBox id={game.id} image={game.image} title={game.title} price={game.price} isNew={game.isNew} /> 
-        )
-        
+    const gamesList = games.filter(game => !game.isVersion )
+                            .filter(game => (game.category === (currentCategory) || currentCategory === 0))
+                                .map(game => {
+                                    return (
+                                        <GameBox id={game.id} image={game.image} title={game.title} price={game.price} isNew={game.isNew} /> 
+                                    )
     }) 
 
     const filterCategory = (categoryId) => {

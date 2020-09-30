@@ -67,8 +67,6 @@
 
     .content{
         color: var(--theme-text-color);
-        //margin-bottom: 15px;
-        //border-bottom: 1px solid var(--theme-grey);
 
         .text h1{
             font-size: 20px;
@@ -106,10 +104,7 @@
         left: 0;
         width: 100%;
         height: 30px;
-        //background: var(--theme-grey);
         padding: 0 15px;
-        //border-top-left-radius: 5px;
-        //border-top-right-radius: 5px;
 
         span{
             color: var(--theme-grey);
@@ -124,13 +119,14 @@
 
 
 
-.game-tag{
-    
+.game-tag{ 
     height: 30px;
     width: 50px;
     font-size: 14px;
     background: var(--pri-green);
     border-radius: 15px 5px 15px 5px;
+    box-shadow: 2px 2px 2px 2px var(--theme-bg-color);
+    z-index: 1;
 
     &.top-left{
         position: absolute;
