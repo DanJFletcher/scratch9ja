@@ -1,4 +1,4 @@
-import React,{ useContext } from 'react'
+import React,{ useState ,useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { GamesContext } from '../../contexts/GamesContext'
 import BackArrow from '../objects/BackArrow';
@@ -8,17 +8,34 @@ import { FiShoppingCart } from 'react-icons/fi'
 import { Tooltip} from '@trendmicro/react-tooltip';
 import GameBox from '../objects/GameBox';
 import StickyCart from '../objects/StickyCart';
-import StickyCartContextProvider from '../../contexts/StickyCartContext';
+import { CartContext } from '../../contexts/CartContext';
+import { IoIosAddCircleOutline, IoIosRemoveCircleOutline } from 'react-icons/io'
+
 
 
 const GameDetails = () => {
 
     const { id } = useParams()
     const { games } = useContext(GamesContext)
+    const { items, addItemToCart } = useContext(CartContext)
+
 
     const game = games.find(game =>  game.id == id)
     const gameBg = 'url('+game.image+') center/cover'
     const verCardImgClass = game.isVerOrient ? 'ver' : ""
+
+
+    const amountInCart = () => {
+        const gameInCart = items.find(item => item.gameId == game.id)
+        return gameInCart ? gameInCart.amount : 1
+    }
+    const countAmountInCart = amountInCart()
+    const [itemQuantity, setItemQuantity] = useState(countAmountInCart)
+
+    const isItemInCart = items.some(item => item.gameId === game.id)
+    const [exactInCart, setExactInCart] = useState(isItemInCart)
+
+
 
     const moreVersion = games.filter(game => game.title == "find the ball")
                                 .filter(filteredGames => filteredGames.id != game.id)
@@ -44,16 +61,31 @@ const GameDetails = () => {
                                     )
                                 })
 
+
+    const increaseQuantity = () =>{
+        setItemQuantity(itemQuantity + 1)
+        setExactInCart(false)
+    }
+
+    const decreaseQuantity = () =>{
+        if(itemQuantity > 1){
+            setItemQuantity(itemQuantity - 1)
+            setExactInCart(false)
+        }
+    }
+
+    const addToCartBtnClass = exactInCart ? "disabled" : ""
+
     return (
         <div>
 
-           <StickyCartContextProvider> <StickyCart isVisible={true} /> </StickyCartContextProvider>
+           <StickyCart isVisible={true} />
 
             <div className="game-datails-bg-container">
 
                 <div className="flex justify-between game-details-header">
-                    <BackArrow />
-                    {  game.isNew&& (<GameTag text="new" />) }
+                    <BackArrow to="/" hash="#game-categories-tab" />
+                    {/* {  game.isNew&& (<GameTag text="new" />) } */}
                 </div>
 
                 
@@ -65,16 +97,35 @@ const GameDetails = () => {
                         <div className="text-content">
                             
                             <h1> {game.title} </h1>
-                            <span class="prize">top prize : &nbsp;<b>{game.topPrize}</b> </span>
+                            <span class="prize">top prize : <b>{game.topPrize}</b> </span>
                             <div className="description">
                                 <span>{game.desc}</span>
                             </div>
 
-                            <div className="flex justify-between cta">
-                                <span className="price">&#8358; {game.price}</span>
+                            <div className="flex justify-between price-section">
+                                <div className="price">
+                                    <span>total</span>
+                                    <h2>₦{(game.price * itemQuantity).toLocaleString()}</h2>
+                                </div>
 
-                                <div className="custom-btn">
-                                    <span>add to cart</span>
+                                <div className="quantity-control">
+                                    <div className="title">
+                                       <span>quantity</span> 
+                                    </div>
+                                    <div className="flex justify-between controls">
+                                        <div onClick={() => decreaseQuantity()}> <IoIosRemoveCircleOutline /> </div>
+                                        <span> {itemQuantity} </span> 
+                                        <div onClick={() => increaseQuantity()}> <IoIosAddCircleOutline /> </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div className="flex justify-between cta">
+                                {/* <span className="price">₦{game.price}</span> */}
+
+                                <div onClick={ exactInCart ? null : (() => {addItemToCart(game.id, itemQuantity); setExactInCart(true)}) } className={"custom-btn " + addToCartBtnClass}>
+                                    <span> add to cart </span>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +144,7 @@ const GameDetails = () => {
                 { game.title == "find the ball"&& (
                     <div className="mb-24">
                         
-                        <div className="sub-heading">   
+                        <div className="section-sub-heading">   
                             <span>More Versions</span>
                         </div>
 
@@ -104,7 +155,7 @@ const GameDetails = () => {
                     </div> ) }
 
                     <div className="mb-32">
-                        <div className="sub-heading">   
+                        <div className="section-sub-heading">   
                             <span>People are also playing</span>
                         </div>
 

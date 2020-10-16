@@ -1,0 +1,176 @@
+
+// MIXINS
+
+@mixin cartCounterStyle{
+    position: absolute;
+    right: -15px;
+    top: -10px;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: 20px;
+    background: var(--theme-color1);
+    box-sizing: content-box;
+
+    span{
+        font-size: 14px;
+        font-weight: 900;
+        color: #202323;
+    }
+}
+
+
+// END
+
+
+
+
+// SECTION HEADINGS
+
+.section-heading{
+    text-align: center;
+    color: var(--theme-text-color);
+    font-size: 45px;
+    font-family: var(--heading-text-font);
+
+    @include mobile-576{
+        font-size: 30px;
+    }
+}
+
+.section-sub-heading{
+    color: var(--theme-text-color);
+    font-family: var(--heading-text-font);
+    font-size: 35px;
+    text-transform: capitalize;
+
+    @include mobile-576{
+        font-size: 25px;
+    }
+}
+
+
+// END 
+
+
+
+
+// STICKY CART
+
+.sticky-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    background: var(--theme-bg-color);
+    z-index: 10;
+    box-shadow: 0 0 10px 5px var(--theme-bg-variant);
+    cursor: pointer;
+
+    svg{
+        color: var(--theme-text-color);
+        height: 30px;
+        width: 30px;
+    }
+
+    .cart-counter{
+        @include cartCounterStyle();
+        border: 3px solid var(--theme-bg-color);
+    }
+}
+
+//END
+
+
+
+
+// FAQ ACCORDION
+
+.faq-container{
+    @include mobile-576{
+        display: block;
+    }
+}
+
+.faq-box{
+    width: 800px;
+    background: var(--theme-bg-variant);
+    color: var(--theme-text-color);
+
+    @include medium-tablet{
+        width: 650px;
+    }
+
+    @include mobile-576{
+        width: 100%;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 10px;
+    }
+
+    &.opened {
+        .faq-question svg{
+            transform: rotate(45deg);
+        }
+
+        .faq-answer{
+            display: block;
+        }
+    }
+}
+
+.faq-question{
+    padding: 20px 30px;
+    cursor: pointer;
+
+    @include mobile-576{
+        padding: 10px 20px;
+    }
+
+    h1{
+        font-size: 30px;
+
+        @include medium-tablet{
+            font-size: 20px;
+        }
+
+        @include mobile-576{
+            font-size: 18px;
+        }
+    }
+
+    svg{
+        height: 35px;
+        width: 35px;
+
+        @include medium-tablet{
+            height: 25px;
+            width: 25px;
+        }
+
+        @include mobile-576{
+            height: 22px;
+            width: 22px;
+        }
+    }
+}
+
+.faq-answer{
+    padding: 20px 30px;
+    border-top: 2px solid var(--theme-bg-color);
+    font-size: 25px;
+    overflow: hidden; 
+    display: none;
+
+    @include medium-tablet{
+        font-size: 18px;
+    }
+
+    @include mobile-576{
+        padding: 10px 20px;
+    }
+}
+
+//END

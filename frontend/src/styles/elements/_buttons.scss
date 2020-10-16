@@ -12,7 +12,7 @@
     cursor: pointer;
 
     @include mobile-576{
-        padding: 15px 36px;
+        padding: 12px 25px;
         font-size: 14px;
     }
 
@@ -32,6 +32,11 @@
             align-self: center;
         }
     }
+
+    &.disabled{
+        opacity: .1;
+        cursor: not-allowed;
+    }
 }
 
 
@@ -46,6 +51,11 @@
     background: transparent;
     transition: ease all .2s;
     z-index: 10;
+
+    @include mobile-576{
+        height: auto;
+        width: auto;
+    }
 
     svg{
         color: var(--theme-text-color);

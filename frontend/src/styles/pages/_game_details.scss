@@ -72,6 +72,7 @@
     
     .text-content{
         width: 400px;
+        margin-top: 70px;
 
         @include medium-tablet{
             width: 350px;
@@ -79,6 +80,7 @@
 
         @include mobile-576{
             width: 100%;
+            margin-bottom: -150px;
         }
     
         h1{
@@ -118,7 +120,49 @@
     
             span{
                 color: var(--theme-text-color);
-                font-weight: bold;
+                //font-weight: bold;
+            }
+        }
+
+        .price-section{
+
+            margin-top: 30px;
+
+            @mixin price-section-title {
+                color: var(--theme-grey);
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 900;
+            }
+
+            .price{
+
+                span{
+                    @include price-section-title;
+                }
+
+                h2{
+                    color: var(--theme-text-color);
+                    font-size: 25px;
+                }
+            }
+
+
+            .quantity-control .title{
+                @include price-section-title;
+                width: 100%;
+                text-align: right;
+            }
+
+            .quantity-control .controls{
+                color: var(--theme-text-color);
+                font-size: 30px;
+                width: 130px;
+        
+                svg{
+                    color: var(--theme-color1);
+                    cursor: pointer;
+                }
             }
         }
     
@@ -142,11 +186,16 @@
 
         @include mobile-576{
             width: 100%;
+            margin-bottom: -30px;
         }
 
         img{
             border-radius: 10px;
             box-shadow: 0 0 2px 2px var(--theme-bg-color);
+
+            @include mobile-576{
+                align-self: flex-end;
+            }
             
             &.ver{
                 height: 450px;
@@ -163,19 +212,8 @@
     padding: 30px;
 
     @include mobile-576{
-        margin-top: 70px;
+        margin-top: 250px;
         padding: 30px 15px;
-    }
-}
-
-.sub-heading{
-    color: var(--theme-text-color);
-    font-family: var(--heading-text-font);
-    font-size: 35px;
-    text-transform: capitalize;
-
-    @include mobile-576{
-        font-size: 25px;
     }
 }
 

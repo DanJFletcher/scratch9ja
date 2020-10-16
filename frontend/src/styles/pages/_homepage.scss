@@ -8,23 +8,6 @@
     stroke: $color;
 }
 
-@mixin cartCounterStyle{
-    position: absolute;
-    right: -15px;
-    top: -10px;
-    height: 20px;
-    padding: 0 7px;
-    border-radius: 20px;
-    background: var(--theme-color1);
-    box-sizing: content-box;
-
-    span{
-        font-size: 14px;
-        font-weight: 900;
-        color: #202323;
-    }
-}
-
 
 
 
@@ -248,7 +231,7 @@
 .custom-tabs{
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     background: var(--theme-bg-color);
 
 
@@ -352,144 +335,10 @@
 }
 
 
-.sticky-cart{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    height: 70px;
-    width: 70px;
-    border-radius: 100%;
-    background: var(--theme-bg-color);
-    z-index: 10;
-    box-shadow: 0 0 10px 5px var(--theme-bg-variant);
-    cursor: pointer;
-
-    svg{
-        color: var(--theme-text-color);
-        height: 30px;
-        width: 30px;
-    }
-
-    .cart-counter{
-        @include cartCounterStyle();
-        border: 3px solid var(--theme-bg-color);
-    }
-}
-
-.Accordion-name{
-    display: block;
-    color: var(--theme-text-color);
-    width: 150vmin;
-    height: 80px;
-    background: var(  --theme-bg-variant);
-    cursor: pointer;
-
-}
-.faq-header{
-    color: var(--theme-text-color);
-    margin-top: 50px;
-    padding-bottom: 30px;
-}
-
-.faq-title{
-    font-weight: 400;
-    padding-left: 30px;
-    padding-top: 20px;
-    
-    
-}
-
-.tab-content{
-    background: var(  --theme-bg-variant);
-    color: var(--theme-text-color);
-    width: 150vmin;
-    margin-top: 2px;
-    padding-left: 30px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: larger;
-}
-
 .footer-styles{
     color: var(--theme-grey);
     font-size: 14px;
-}
-
-.Accordion-name{
-    display: block;
-    color: var(--theme-text-color);
-    width: 150vmin;
-    height: 80px;
-    background: var(  --theme-bg-variant);
-    cursor: pointer;
-    font-weight: 400;
-    padding-left: 30px;
-    padding-top: 20px;
-
-    @include medium-tablet{
-    font-size: x-large;
-    width: auto;
-    }
-
-    @include small-tablet{
-    font-size: larger;
-    width: auto;
-    }
-
-    @include mobile-576{
-    font-size: large;
-    width: auto;
-    }
-
-}
-
-
-.faq-header{
-    color: var(--theme-text-color);
-    margin-top: 50px;
-    padding-bottom: 30px;
-
-    @include medium-tablet{
-       font-size: 100px;
-    }
-
-    @include small-tablet{
-       font-size: x-large;
-    }
-
-    @include mobile-576{
-       font-size: x-large;
-    }
-}
-
-
-.Accordion-content{
-    background: var(  --theme-bg-variant);
-    color: var(--theme-text-color);
-    width: 150vmin;
-    margin-top: 2px;
-    padding-left: 30px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: larger;
-    @include medium-tablet{
-        font-size: larger;
-        width: auto;
-     }
- 
-     @include small-tablet{
-        font-size: large;
-        width: auto;
-     }
- 
-     @include mobile-576{
-        font-size: medium;
-        width: auto;
-     }
-    
-}
+}   
 
 .footer-styles{
     color: var(--theme-grey);
@@ -512,12 +361,4 @@
         width: auto;
 
      }
-}
-
-.faq-styles{
-    position: absolute;
-    left: 1050px;
-    z-index: 1;
-    cursor:pointer;
-    
 }

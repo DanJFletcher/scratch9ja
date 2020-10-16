@@ -43,7 +43,7 @@ const Homepage = () => {
             <div className="flex justify-around game-highlight">
                 <div className="text-content">
                     <h1>Where do you think <br/> the ball is... Lets play!</h1>
-                    <p>Scratch the box where you think the ball should be, if you find the ball you win <b> &#8358; 50,000 </b>instantly</p>
+                    <p>Scratch the box where you think the ball should be, if you find the ball you win <b> ₦50,000 </b>instantly</p>
                 </div>
                 <div className="media-content flex justify-center">
                     <video autoplay="autoplay" loop>
@@ -83,10 +83,9 @@ const Homepage = () => {
 
             <PageDivider />
 
-            <GamesContextProvider>
-                <GamesByCategories/>
-            </GamesContextProvider>
+            <GamesByCategories/>
 
+            <PageDivider />
 
             <Faqs/>
 

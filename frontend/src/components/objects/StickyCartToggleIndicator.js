@@ -1,18 +1,18 @@
 import React,{useContext, createRef} from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
-import { StickyCartContext } from '../../contexts/StickyCartContext'
+import { CartContext } from '../../contexts/CartContext'
 
 
 const StickyCartToggleIndicator = () => {
 
     const stickyCartToggleRef = createRef(null)
 
-    const { setIsVisible } = useContext(StickyCartContext)
+    const { setStickyCartVisibility } = useContext(CartContext)
     useScrollPosition( ({currPos}) =>{
         if(-(currPos.y) >= stickyCartToggleRef.current.offsetTop){
-            setIsVisible(true)
+            setStickyCartVisibility(true)
         }else{
-            setIsVisible(false)
+            setStickyCartVisibility(false)
         }
     })
 

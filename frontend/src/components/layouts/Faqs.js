@@ -1,89 +1,56 @@
 import React, { useState, useRef } from "react";
-import { FiPlus, FiX } from "react-icons/fi";
+import {VscAdd} from 'react-icons/vsc'
+import { loremIpsum } from 'react-lorem-ipsum';
+
 
 const Faqs = () => {
-const [currentFaq, setCurrentFaq] = useState(0);
 
 const [faqQuestions, setFaqQuestions] = useState([
-    {
-    id: 0,
-    name: "What is Scratch9ja?",
-    details:
-        "veryyyy long yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga",
-    isActive: false
-    },
-    {
-    id: 1,
-    name: "How does it work?",
-    details:
-        "veryyyy long yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga!",
-    isActive: false
-    },
-    {
-    id: 2,
-    name: "Where can i play?",
-    details:
-        "veryyyy long yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga",
-    isActive: false
-    },
-    {
-    id: 3,
-    name: "What can i win on Scratch9ja?",
-    details:
-        "veryyyy long yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga yama yama jaga jaga",
-    isActive: false
-    }
+    { id: 0, question: "What is Scratch9ja?", answer: loremIpsum(),isActive: false },
+    { id: 1, question: "How does it work?", answer: loremIpsum(),isActive: false },
+    { id: 2, question: "Where can I play?", answer: loremIpsum(),isActive: false },
+    { id: 3, question: "What can I win on Scratch9ja?", answer: loremIpsum(),isActive: false },
 ]);
 
-  // Accordion visibility toggle
-
-  const [previewVisiblity, setPreviewVisiblity] = useState(false);
-  const changeIcon = previewVisiblity ? <FiX /> :  <FiPlus />;
-  const toggleAccordionVisibility = () => {
-    setPreviewVisiblity(previewVisiblity => !previewVisiblity );
-  };
-
-const faqTab = faqQuestions.map(faq => {
-    const detailsDisplay = faq.isActive ? "block" : "hidden";
+const faqBox = faqQuestions.map(faq => {
+    const displayClass = faq.isActive ? "opened" : "";
 
     return (
-    <div
-        key={faqQuestions.id}
-        onClick={() => filterAccordion(faq.id)}
-        className={""}
-    >
-        <span
-        className={
-            "Accordion-name md:font-bold ml-auto mr-auto mt-2 text-2xl pt-5 pl-8"} >
-        {faq.name}
-        <i className="faq-styles" onClick={() => toggleAccordionVisibility(faq.id)}>{changeIcon}</i>
-        </span>
-        <p className={" ml-auto mr-auto Accordion-content " + detailsDisplay}>
-        {faq.details}
-        </p>
-    </div>
+        <div className={"faq-box " + displayClass} onClick={ () => toggleAccordion(faq.id) }>
+            <div className="flex justify-between faq-question">
+                <h1>{ faq.question }</h1>
+                <VscAdd />
+            </div>
+            <div className="faq-answer">
+                <span>{ faq.answer }</span>
+            </div>
+        </div>
     );
 });
 
 
-const filterAccordion = (faqId) => {
+const toggleAccordion = (faqId) => {
     let updatedFaqs = faqQuestions.map(faq => {
     if (faq.id === faqId) {
-        faq.isActive = true;
+        faq.isActive = !faq.isActive;
     } else {
         faq.isActive = false;
     }
     return faq;
     });
-    setCurrentFaq(updatedFaqs);
+    setFaqQuestions(updatedFaqs);
 };
 
 return (
-    <div className=" mb-20 ">
-        <h1 className="text-5xl md:font-bold text-center faq-header ">
-            Frequently Asked Questions
-        </h1>
-        <div className="  ">{faqTab}</div>
+    <div className="mt-20 mb-20">
+        <div className="flex justify-center section-heading mt-20 mb-10">
+            <span>Frequently Asked Questions</span>
+        </div>
+        <div className="flex justify-center faq-container">
+            <div>
+                { faqBox }
+            </div>
+        </div>
     </div>
 );
 };

@@ -87,12 +87,6 @@ const GamesByCategories = () => {
                 </div> 
             </div>
 
-            <div className="flex justify-center mb-8">
-                <a href="#" className="custom-btn">
-                        <span>load more games</span>
-                    </a>
-            </div>
-
             
         </div>
     )

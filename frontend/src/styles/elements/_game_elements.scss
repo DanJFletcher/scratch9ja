@@ -68,6 +68,12 @@
     .content{
         color: var(--theme-text-color);
 
+        .text{
+            @include mobile-576{
+                width: 80%;
+            }
+        }
+
         .text h1{
             font-size: 20px;
             font-family: var(--heading-text-font);
@@ -76,6 +82,10 @@
 
             @include mobile-576{
                 font-size: 15px;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
 

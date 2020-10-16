@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../imgs/logo.png'
 import { FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
+import { CartContext } from '../../contexts/CartContext';
 
 const Header = () => {
+
+    const { cartTotal } = useContext(CartContext)
 
     return (
         <div>
@@ -24,7 +27,7 @@ const Header = () => {
                             <FiShoppingCart />
                         </Tooltip>
                         <div className="flex justify-center cart-counter">
-                            <span>0</span>
+                            <span>{cartTotal()}</span>
                         </div>
                     </div> 
 

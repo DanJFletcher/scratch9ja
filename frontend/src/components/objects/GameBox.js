@@ -18,7 +18,7 @@ const GameBox = (props) => {
                 <div className="content flex justify-between">
                     <div className="text">
                         <h1>{props.title}</h1>
-                        <span>&#8358; {props.price}</span>
+                        <span>₦{props.price.toLocaleString()}</span>
                     </div>
                     <div className="cta flex justify-center">
                         <Tooltip placement="top" content="Add To Cart">
