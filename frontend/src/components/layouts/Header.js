@@ -20,8 +20,9 @@ const Header = () => {
                     <input type="text" placeholder="What will you love to win?"/>
                     <span> <Icon.Search /> </span>
                 </div> */}
-
+           
                 <div className="flex justify-between ctas">
+            <Link to="/cart" >
                     <div className="cart-container">
                         <Tooltip placement="top" content="View Cart">
                             <FiShoppingCart />
@@ -29,7 +30,8 @@ const Header = () => {
                         <div className="flex justify-center cart-counter">
                             <span>{cartTotal()}</span>
                         </div>
-                    </div> 
+                    </div>
+                 </Link>
 
                     <Link to="/login" className="custom-btn header-btn">
                         <span> login </span>
