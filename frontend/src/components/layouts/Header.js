@@ -4,6 +4,7 @@ import logo from '../../imgs/logo.png'
 import { FiShoppingCart } from "react-icons/fi"
 import { Tooltip} from '@trendmicro/react-tooltip';
 import { CartContext } from '../../contexts/CartContext';
+import AuthOptions from "../auth/authOptions";
 
 const Header = () => {
 
@@ -33,9 +34,8 @@ const Header = () => {
                     </div>
                  </Link>
 
-                    <Link to="/login" className="custom-btn header-btn">
-                        <span> login </span>
-                    </Link>
+                 <AuthOptions />
+
                 </div>
             </div>
         </div>
