@@ -4,13 +4,16 @@ const bodyParser = require('body-parser');
 const postRoute = require('./routes/post')
 const cors = require("cors");
 const dotenv = require("dotenv")
-
+const gameRoutes = require("./routes/game")
+const cartRoute = require('./routes/cartRoute')
 dotenv.config()
 
 // setup express app
 const app = express();
 app.use(cors());
 
+// handle file upload
+app.use( express.static("imgs"));
 
 // connect to mongodb
 
@@ -27,10 +30,11 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 
 
-
 // Routes Middleware
 app.use('/api/user',  require('./routes/auth'));
 app.use('/api/users', postRoute)
+app.use('/api/list', gameRoutes)
+app.use('/api/items', cartRoute)
 
 
 
@@ -40,7 +44,6 @@ app.use(function (err, req, res, next) {
         
 })
     
-
 
 // listen for requests
 app.listen(process.env.port || 8000, function(){

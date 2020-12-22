@@ -20,7 +20,7 @@
 
         const emailExist = await User.findOne({email: req.body.email})
         if (emailExist) {
-        return res.status(400).send('Email already exists')  ;
+         res.status(400).send('A user with this email already exist')  ;
         }
 
 
@@ -29,8 +29,7 @@
 
 
             // CREATE A NEW USER
-
-        const user = new User({
+           const user = new User({
             name: req.body.name,
             email: req.body.email,
             password: hash
@@ -70,8 +69,13 @@
 
          // CREATE AND ASSIGN A TOKEN
         const token = Jwt.sign({_id: user._id},  process.env.TOKEN_SECRET);
-      if (token) 
-       res.header('auth-token', token).send(token);
+         res.json({
+             token,
+             user: {
+                 id: user._id,
+                 name: user.name
+             },
+         })
     
         // res.json('Login successful');
         })
@@ -80,10 +84,10 @@
         
 
         // GET USER'S DATA
-        router.get("/", async (req, res) => {
-            const user = await User.findById(req.user);
-            res.send(user);
-        })
+        // router.get("/", async (req, res) => {
+        //     const user = await User.findById(req.user);
+        //     res.send(user);
+        // })
 
         module.exports = router;
 

@@ -1,23 +1,46 @@
-import React, { useState }   from 'react';
+import React, { useState, useContext}   from 'react';
 import LoginBanner from '../../imgs/scratch9ja.png';
 import Logo from '../../imgs/logo.png';
 import {useForm} from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa"
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+import UserContext from "../../contexts/UserContext";
+import Axios from "axios";
+import ErrorNotice from '../auth/ErrorNotice';
 
 
 const Login = () => {
+
+    const [ email, setEmail ] = useState();
+    const [ password, setPassword] = useState();
+    const [error, setError] = useState();
+
+    const { setUserData } = useContext(UserContext);
+    const history = useHistory();
 
     //background image
     const loginBg = "url(" + LoginBanner + ") center/cover"
 
     // handle submit
     const { register, handleSubmit, errors} = useForm({});
-    const onSubmit =  (data, e) => {
-        console.log(data);
-        e.target.reset();
+
+    const onSubmit =  async () => {
+        try {
+            const loginUser = { email, password };
+            const loginRes = await Axios.post(
+                "http://localhost:8000/api/user/login",
+                loginUser
+            ); 
+            setUserData({
+                token: loginRes.data.token,
+                user: loginRes.data.user,
+            });
+            localStorage.setItem("auth-token", loginRes.data.token);
+            history.push("/");
+        } catch (err) {
+            setError(err.response.data); 
+        }
     };
-    const onError = (errors, e) => console.log(errors, e);
 
     // Password visibility toggle
     const [passwordShown, setPasswordShown] = useState(false);
@@ -35,26 +58,37 @@ const Login = () => {
                         <img src={Logo} alt=""/>
                     </div>
                 
-                    <form onSubmit={handleSubmit(onSubmit, onError)}>
-
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                                { error &&( <ErrorNotice message={error} clearError={() => setError(undefined) } />)}
                         <div className="mt-5 form-group">
-                            <label htmlFor="username">Username</label>
-                            <input type="text" id="username" name="username" className="block w-full custom-input p-2  rounded "
-                            ref={register({ required: true })} />
-                            {errors.username && errors.username.type === "required" 
-                            &&  (<span className="error-message">Fill in your Username</span>) }
+                            <label  htmlFor="email">Email Address</label>
+                            <input className="block w-full custom-input p-2  rounded  " name="email" id="email" type="email" placeholder="Your valid email address"
+                            ref={register({
+                            required: "Required",
+                            pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                            }})} 
+                            onChange={(e) => setEmail(e.target.value)}
+                            />
+
+                            {errors.email && errors.email.type === "required" 
+                            &&  (<span className="error-message">Email field is required</span>)}
+
+                            {errors.email && errors.email.type === "pattern" 
+                            &&  (<span className="error-message">invalid email address</span>)}
                         </div>
                         
                         <div className="mt-5 form-group">
                             <label htmlFor="password">Password</label>
                             <input type={passwordShown ? "text" : "password"} id="password" name="password"
                             className="block w-full custom-input p-2  rounded "
-                            ref={register({ required: true, maxLength: 8, minLength: 8,  })} />
+                            onChange={(e) => setPassword(e.target.value)}
+                            ref={register({ required: true, minLength: 8,  })} />
                             <i className="password-view" onClick={ () => togglePasswordVisiblity() }>{passwordToggleIcon}</i>
                         
 
                             {errors.password && errors.password.type === "required" 
-                            &&  (<span className="error-message">Fill in your Username password</span>)}
+                            &&  (<span className="error-message">Fill in your password</span>)}
 
                             {errors.password && errors.password.type === "maxLength" 
                             &&  (<span className="error-message">Password has exceeded eight characters</span>)}

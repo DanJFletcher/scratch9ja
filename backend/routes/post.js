@@ -15,7 +15,7 @@ router.get("/", verify, async (req, res) => {
   });
 })
 
-// ROUTE TO CHECK IF TOKEN IS VALID
+// CHECK IF TOKEN IS VALID
 router.post("/tokenIsValid", verify, async (req, res) => {
   try {
     const verified = await User.findById(req.user);
