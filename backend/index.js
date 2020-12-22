@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 
 // handle file upload
-app.use( express.static("imgs"));
+app.use( express.static("storage/imgs"));
 
 // connect to mongodb
 

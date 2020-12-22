@@ -5,20 +5,19 @@ const path = require("path");
 
 // checking for file type
 const MIME_TYPES = {
-    'imgs/jpg': 'jpg',
-    'imgs/jpeg': 'jpeg',
-    'imgs/png': 'png'
+    'image/jpg': 'jpg',
+    'image/jpeg': 'jpeg',
+    'image/png': 'png'
 }
 
 // Image Upload
 const storage = multer.diskStorage({
     destination: (req, file, cb ) => {
-      cb(null, ('/imgs/'));
+      cb(null, ('storage/imgs/'));
     },
     filename: (req, file, cb) => {
-        cb(null, file.originalname)
         const extension = MIME_TYPES[file.mimetype];
-        cb(null, + new Date().toISOString() + '.' + extension);
+        cb(null, `${new Date().toISOString()}.${extension}`);
     }
 });
 
